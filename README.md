@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Jaeung Jang - Personal Website
 
-## Getting Started
+A modern, responsive personal portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features a clean design with smooth animations and dark/light mode toggle.
 
-First, run the development server:
+## 🚀 Features
 
+- **Modern Design**: Clean, professional layout with smooth animations
+- **Responsive**: Optimized for all device sizes (desktop, tablet, mobile)
+- **Dark/Light Mode**: Toggle between themes with system preference detection
+- **Performance Optimized**: Built with Next.js 15 and modern web standards
+- **Accessibility**: WCAG compliant with proper semantic HTML
+- **SEO Optimized**: Meta tags, Open Graph, and Twitter Card support
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Theme**: next-themes
+- **Deployment**: Ready for Vercel, Netlify, or any static hosting
+
+## 🏃‍♂️ Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and npm
+
+### Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/JaeungJayJang/personal_website.git
+cd personal_website
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Start the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Open [http://localhost:3000](http://localhost:3000) to view in browser.
 
-## Learn More
+## 📝 Available Scripts
 
-To learn more about Next.js, take a look at the following resources:
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🎨 Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Personal Information
+Update the content in the following components:
+- `src/components/hero-section.tsx` - Name, title, and bio
+- `src/components/about-section.tsx` - About section content
+- `src/components/experience-section.tsx` - Work experience
+- `src/components/projects-section.tsx` - Project portfolio
+- `src/components/contact-section.tsx` - Contact information
 
-## Deploy on Vercel
+### Styling
+- Colors and themes: `src/app/globals.css` and `tailwind.config.ts`
+- Component styles: Individual component files in `src/components/`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Metadata
+Update SEO and meta information in `src/app/layout.tsx`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Deployment
+
+### Vercel (Recommended)
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Deploy automatically with every push
+
+### Other Platforms
+Build the project with `npm run build` and deploy the `out` folder to any static hosting service.
+
+## 📧 Contact
+
+- **Email**: jaeung.jang@gmail.com
+- **LinkedIn**: [linkedin.com/in/jaeung-jang](https://linkedin.com/in/jaeung-jang)
+- **GitHub**: [github.com/JaeungJayJang](https://github.com/JaeungJayJang)
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+---
+
+Built with ❤️ by Jaeung Jang
