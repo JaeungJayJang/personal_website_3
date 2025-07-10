@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, Code, Database, Globe, Gamepad2, Cpu, Palette, Filter } from "lucide-react";
+import { Github, ExternalLink, Code, Database, Globe, Gamepad2, Cpu, Palette, Filter, Sparkles, Star } from "lucide-react";
 import { useState } from "react";
 
 export function ProjectsSection() {
@@ -139,7 +139,7 @@ export function ProjectsSection() {
       opacity: 1,
       scale: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
       },
     },
     exit: {
@@ -153,11 +153,13 @@ export function ProjectsSection() {
   };
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-background via-muted/30 to-background relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-      <div className="absolute top-20 left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-20 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+    <section id="projects" className="relative py-24 bg-gradient-to-br from-background via-muted/10 to-background overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-40 left-40 w-64 h-64 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-40 right-40 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/4 w-40 h-40 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse delay-2000" />
+      </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <motion.div
@@ -167,10 +169,14 @@ export function ProjectsSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-primary via-purple-500 to-blue-500 bg-clip-text text-transparent">
-            Featured Projects
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Code className="w-6 h-6 text-blue-400" />
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+              Featured Projects
+            </h2>
+            <Sparkles className="w-6 h-6 text-purple-400" />
+          </div>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             A showcase of my side projects spanning web development, hardware, IoT, 
             and mobile game development. Each project represents a unique challenge and learning experience.
           </p>
@@ -188,12 +194,12 @@ export function ProjectsSection() {
             <motion.button
               key={category}
               onClick={() => setActiveFilter(category)}
-              className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                 activeFilter === category
-                  ? 'bg-primary text-primary-foreground shadow-lg'
-                  : 'bg-background/50 backdrop-blur-sm border border-border hover:bg-accent'
+                  ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-lg'
+                  : 'bg-background/50 backdrop-blur-md border border-border/50 hover:bg-accent hover:border-primary/30'
               }`}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
               <Filter className="w-4 h-4 inline mr-2" />
@@ -205,50 +211,50 @@ export function ProjectsSection() {
         {/* Featured Project */}
         {featuredProject && activeFilter === "All" && (
           <motion.div
-            className="mb-16"
+            className="mb-20"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <div className={`relative bg-gradient-to-br ${featuredProject.gradient} backdrop-blur-sm border border-border/50 rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-500`}>
-              <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
+            <div className="relative bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:border-primary/30">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
               <div className="relative p-8 md:p-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                   <div>
                     <div className="flex items-center gap-4 mb-6">
-                      <div className={`${featuredProject.bgColor} w-16 h-16 rounded-2xl flex items-center justify-center backdrop-blur-sm`}>
-                        <featuredProject.icon className={`w-8 h-8 ${featuredProject.accentColor}`} />
+                      <div className="bg-gradient-to-r from-cyan-500 to-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg">
+                        <featuredProject.icon className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <span className="px-3 py-1 bg-background/80 backdrop-blur-sm text-xs font-medium rounded-full border border-border/50">
+                        <span className="px-4 py-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 text-yellow-400 border border-yellow-500/30 text-sm font-medium rounded-full backdrop-blur-sm">
                           ⭐ Featured Project
                         </span>
                         {featuredProject.period && (
-                          <p className="text-sm text-muted-foreground mt-1">{featuredProject.period}</p>
+                          <p className="text-sm text-muted-foreground mt-2">{featuredProject.period}</p>
                         )}
                       </div>
                     </div>
                     
-                    <h3 className="text-3xl font-bold mb-4 group-hover:text-primary transition-colors">
+                    <h3 className="text-3xl font-bold mb-4 text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                       {featuredProject.title}
                     </h3>
                     
-                    <p className="text-muted-foreground mb-6 leading-relaxed">
+                    <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
                       {featuredProject.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-8">
+                    <div className="flex flex-wrap gap-3 mb-8">
                       {featuredProject.technologies.slice(0, 6).map((tech, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-background/50 backdrop-blur-sm text-sm rounded-full border border-border/50"
+                          className="px-4 py-2 bg-background/50 backdrop-blur-sm text-sm rounded-xl border border-border/50 hover:border-primary/30 transition-colors"
                         >
                           {tech}
                         </span>
                       ))}
                       {featuredProject.technologies.length > 6 && (
-                        <span className="px-3 py-1 bg-background/50 backdrop-blur-sm text-sm rounded-full border border-border/50">
+                        <span className="px-4 py-2 bg-muted text-sm rounded-xl">
                           +{featuredProject.technologies.length - 6} more
                         </span>
                       )}
@@ -257,18 +263,18 @@ export function ProjectsSection() {
                     <div className="flex gap-4">
                       {featuredProject.hasGithub && (
                         <motion.button
-                          className="bg-primary text-primary-foreground px-6 py-3 rounded-xl font-medium hover:bg-primary/90 transition-colors flex items-center gap-2"
-                          whileHover={{ scale: 1.05 }}
+                          className="flex items-center gap-2 px-6 py-3 bg-background/80 backdrop-blur-sm border border-border/50 rounded-xl hover:bg-accent transition-all duration-300"
+                          whileHover={{ scale: 1.05, y: -2 }}
                           whileTap={{ scale: 0.95 }}
                         >
                           <Github className="w-5 h-5" />
-                          View Code
+                          Code
                         </motion.button>
                       )}
                       {featuredProject.hasDemo && (
                         <motion.button
-                          className="bg-background/50 backdrop-blur-sm border border-border/50 px-6 py-3 rounded-xl font-medium hover:bg-accent transition-colors flex items-center gap-2"
-                          whileHover={{ scale: 1.05 }}
+                          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                          whileHover={{ scale: 1.05, y: -2 }}
                           whileTap={{ scale: 0.95 }}
                         >
                           <ExternalLink className="w-5 h-5" />
@@ -279,23 +285,18 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="relative">
-                    <div className="bg-background/20 backdrop-blur-sm rounded-xl p-6 border border-border/50">
-                      <h4 className="font-semibold mb-4 text-lg">Key Features</h4>
-                      <div className="space-y-3">
+                    <div className="bg-gradient-to-br from-background/80 to-muted/20 border border-border/50 rounded-2xl p-6 shadow-lg backdrop-blur-sm">
+                      <h4 className="text-lg font-semibold mb-4 text-gradient bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                        Key Features
+                      </h4>
+                      <ul className="space-y-3">
                         {featuredProject.features.map((feature, i) => (
-                          <motion.div
-                            key={i}
-                            className="flex items-start gap-3"
-                            initial={{ opacity: 0, x: 20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: i * 0.1 }}
-                            viewport={{ once: true }}
-                          >
-                            <div className={`w-2 h-2 ${featuredProject.bgColor} rounded-full mt-2 flex-shrink-0`} />
-                            <span className="text-sm text-muted-foreground">{feature}</span>
-                          </motion.div>
+                          <li key={i} className="flex items-start gap-3">
+                            <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full mt-2 flex-shrink-0" />
+                            <span className="text-muted-foreground">{feature}</span>
+                          </li>
                         ))}
-                      </div>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -308,7 +309,7 @@ export function ProjectsSection() {
         <AnimatePresence mode="wait">
           <motion.div
             key={activeFilter}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
@@ -316,62 +317,52 @@ export function ProjectsSection() {
           >
             {regularProjects.map((project, index) => (
               <motion.div
-                key={`${activeFilter}-${index}`}
+                key={project.title}
                 variants={itemVariants}
-                className={`relative bg-gradient-to-br ${project.gradient} backdrop-blur-sm border border-border/50 rounded-xl overflow-hidden group hover:shadow-xl transition-all duration-300`}
-                whileHover={{ y: -8, rotateY: 5 }}
-                style={{ 
-                  height: index % 3 === 0 ? 'auto' : index % 2 === 0 ? '400px' : '380px' 
-                }}
+                className="group relative"
+                whileHover={{ y: -10, scale: 1.02 }}
+                transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent" />
-                <div className="relative p-6 h-full flex flex-col">
+                <div className="bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full hover:border-primary/30">
                   <div className="flex items-center justify-between mb-4">
-                    <div className={`${project.bgColor} w-12 h-12 rounded-xl flex items-center justify-center backdrop-blur-sm`}>
-                      <project.icon className={`w-6 h-6 ${project.accentColor}`} />
+                    <div className={`bg-gradient-to-r ${project.gradient} w-12 h-12 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300`}>
+                      <project.icon className="w-6 h-6 text-white" />
                     </div>
-                    <div className="flex flex-col items-end gap-1">
-                      <span className="text-xs bg-background/50 backdrop-blur-sm text-muted-foreground px-2 py-1 rounded-full border border-border/50">
-                        {project.category}
-                      </span>
-                      {project.period && (
-                        <span className="text-xs text-muted-foreground">
-                          {project.period}
-                        </span>
-                      )}
-                    </div>
+                    <span className="px-3 py-1 bg-muted text-xs rounded-full text-muted-foreground">
+                      {project.category}
+                    </span>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold mb-3 text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
                     {project.title}
                   </h3>
-
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed flex-grow">
-                    {project.shortDesc || project.description}
+                  
+                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
+                    {project.shortDesc}
                   </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 4).map((tech, i) => (
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.slice(0, 3).map((tech, i) => (
                       <span
                         key={i}
-                        className="px-2 py-1 bg-background/30 backdrop-blur-sm text-xs rounded border border-border/30"
+                        className="px-3 py-1 bg-background/50 backdrop-blur-sm text-xs rounded-lg border border-border/50"
                       >
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 4 && (
-                      <span className="px-2 py-1 bg-background/30 backdrop-blur-sm text-xs rounded border border-border/30">
-                        +{project.technologies.length - 4}
+                    {project.technologies.length > 3 && (
+                      <span className="px-3 py-1 bg-muted text-xs rounded-lg">
+                        +{project.technologies.length - 3}
                       </span>
                     )}
                   </div>
 
-                  <div className="flex gap-2 mt-auto">
+                  <div className="flex gap-3 mt-auto">
                     {project.hasGithub && (
                       <motion.button
-                        className="flex-1 bg-primary text-primary-foreground py-2 px-3 rounded-lg text-sm font-medium hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                        className="flex items-center gap-2 px-4 py-2 bg-background/80 backdrop-blur-sm border border-border/50 rounded-lg hover:bg-accent transition-colors text-sm"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                       >
                         <Github className="w-4 h-4" />
                         Code
@@ -379,18 +370,13 @@ export function ProjectsSection() {
                     )}
                     {project.hasDemo && (
                       <motion.button
-                        className={`${project.hasGithub ? 'flex-1' : 'w-full'} bg-background/30 backdrop-blur-sm border border-border/50 py-2 px-3 rounded-lg text-sm font-medium hover:bg-accent transition-colors flex items-center justify-center gap-2`}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
+                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/80 to-purple-500/80 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-sm"
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
                       >
                         <ExternalLink className="w-4 h-4" />
                         Demo
                       </motion.button>
-                    )}
-                    {!project.hasGithub && !project.hasDemo && (
-                      <div className="w-full py-2 px-3 rounded-lg text-sm text-muted-foreground text-center bg-background/20 backdrop-blur-sm border border-dashed border-border/50">
-                        Hardware/Personal Project
-                      </div>
                     )}
                   </div>
                 </div>
@@ -401,30 +387,24 @@ export function ProjectsSection() {
 
         {/* Call to Action */}
         <motion.div
-          className="mt-16 text-center"
+          className="mt-20 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <div className="bg-gradient-to-r from-primary/10 via-purple-500/10 to-blue-500/10 backdrop-blur-sm rounded-2xl p-8 border border-border/50">
-            <h3 className="text-2xl font-bold mb-4">Want to see more?</h3>
-            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              These are just a few highlights from my portfolio. Check out my GitHub profile for the complete collection of projects, contributions, and experiments.
-            </p>
-            <motion.a
-              href="https://github.com/JaeungJayJang"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-primary text-primary-foreground px-8 py-4 rounded-xl font-medium hover:bg-primary/90 transition-colors shadow-lg"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Github className="w-5 h-5" />
-              Explore GitHub Profile
-              <ExternalLink className="w-4 h-4" />
-            </motion.a>
-          </div>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            Want to see more projects or discuss a collaboration? Let's connect!
+          </p>
+          <motion.button
+            onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
+            className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3"
+            whileHover={{ scale: 1.05, y: -2 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Star className="w-5 h-5" />
+            View More Projects
+          </motion.button>
         </motion.div>
       </div>
     </section>

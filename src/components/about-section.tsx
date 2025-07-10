@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Brain, Rocket, Users } from "lucide-react";
+import { Code, Brain, Rocket, Users, Sparkles, Star } from "lucide-react";
 
 export function AboutSection() {
   const skills = [
@@ -9,21 +9,29 @@ export function AboutSection() {
       icon: Code,
       title: "Full-Stack Development",
       description: "Experienced in modern web technologies including React, Node.js, and Python.",
+      color: "from-blue-500 to-purple-500",
+      iconColor: "text-blue-400"
     },
     {
       icon: Brain,
       title: "Problem Solving",
       description: "Skilled at analyzing complex problems and implementing effective software solutions.",
+      color: "from-purple-500 to-pink-500",
+      iconColor: "text-purple-400"
     },
     {
       icon: Rocket,
       title: "Software Engineering",
       description: "Building scalable applications with focus on performance and maintainability.",
+      color: "from-pink-500 to-orange-500",
+      iconColor: "text-pink-400"
     },
     {
       icon: Users,
       title: "Team Collaboration",
       description: "Working effectively in cross-functional teams and agile development environments.",
+      color: "from-orange-500 to-cyan-500",
+      iconColor: "text-orange-400"
     },
   ];
 
@@ -39,18 +47,25 @@ export function AboutSection() {
   };
 
   const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
+    hidden: { y: 30, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
       },
     },
   };
 
   return (
-    <section id="about" className="py-20 bg-muted/30">
+    <section id="about" className="relative py-24 bg-gradient-to-br from-background via-muted/10 to-background overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-40 left-20 w-32 h-32 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-40 right-20 w-40 h-40 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-r from-pink-500/5 to-orange-500/5 rounded-full blur-3xl animate-pulse delay-2000" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -59,56 +74,75 @@ export function AboutSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">About Me</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Star className="w-6 h-6 text-cyan-400" />
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+              About Me
+            </h2>
+            <Sparkles className="w-6 h-6 text-purple-400" />
+          </div>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             I'm a software engineer with a passion for building innovative solutions and 
             solving complex problems through technology and data-driven approaches.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-2xl font-bold mb-6">My Journey</h3>
-            <div className="space-y-4 text-muted-foreground">
-              <p>
-                At BioNTech, a large company with great resources and a startup mindset, I focused on building scalable cloud-based pipelines and managing internal databases to help scientists accelerate their research. I enjoyed collaborating with cross-site teams and making complex processes more efficient and accessible.
-              </p>
-              <p>
-                Working closely with scientists and researchers, I’ve become adaptable and attentive to the needs of others, helping bridge the gap between technology and science through teamwork and communication.
-              </p>
-              <p>
-                My time at BlueSphere Bio gave me the opportunity to thrive in a dynamic, fast-paced environment and tackle new technical challenges. I’m enthusiastic about technology, always eager to learn, and approach every project with curiosity and humility.
-              </p>
+            <div className="bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
+              <h3 className="text-2xl font-bold mb-6 text-gradient bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+                My Journey
+              </h3>
+              <div className="space-y-6 text-muted-foreground leading-relaxed">
+                <p>
+                  At <span className="text-cyan-400 font-semibold">BioNTech</span>, a large company with great resources and a startup mindset, I focused on building scalable cloud-based pipelines and managing internal databases to help scientists accelerate their research. I enjoyed collaborating with cross-site teams and making complex processes more efficient and accessible.
+                </p>
+                <p>
+                  Working closely with scientists and researchers, I've become adaptable and attentive to the needs of others, helping bridge the gap between technology and science through teamwork and communication.
+                </p>
+                <p>
+                  My time at <span className="text-purple-400 font-semibold">BlueSphere Bio</span> gave me the opportunity to thrive in a dynamic, fast-paced environment and tackle new technical challenges. I'm enthusiastic about technology, always eager to learn, and approach every project with curiosity and humility.
+                </p>
+              </div>
             </div>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl p-8 border border-border">
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-semibold mb-2">Current Focus</h4>
-                  <p className="text-sm text-muted-foreground">
+            <div className="bg-gradient-to-br from-background/80 to-muted/20 border border-border/50 rounded-2xl p-8 shadow-lg backdrop-blur-sm">
+              <div className="space-y-8">
+                <div className="relative">
+                  <div className="absolute -top-2 -left-2 w-4 h-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full animate-pulse" />
+                  <h4 className="font-semibold text-lg mb-3 text-gradient bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                    Current Focus
+                  </h4>
+                  <p className="text-muted-foreground">
                     Software engineering, full-stack development, and building innovative solutions
                   </p>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Location</h4>
-                  <p className="text-sm text-muted-foreground">Virginia, United States</p>
+                <div className="relative">
+                  <div className="absolute -top-2 -left-2 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse delay-1000" />
+                  <h4 className="font-semibold text-lg mb-3 text-gradient bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    Location
+                  </h4>
+                  <p className="text-muted-foreground">Virginia, United States</p>
                 </div>
-                <div>
-                  <h4 className="font-semibold mb-2">Interests</h4>
-                  <p className="text-sm text-muted-foreground">
+                <div className="relative">
+                  <div className="absolute -top-2 -left-2 w-4 h-4 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full animate-pulse delay-2000" />
+                  <h4 className="font-semibold text-lg mb-3 text-gradient bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
+                    Interests
+                  </h4>
+                  <p className="text-muted-foreground">
                     Web Development, Data Analysis, Cloud Computing, Open Source
                   </p>
                 </div>
@@ -118,24 +152,34 @@ export function AboutSection() {
         </div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {skills.map((skill) => (
+          {skills.map((skill, index) => (
             <motion.div
               key={skill.title}
               variants={itemVariants}
-              className="bg-background border border-border rounded-lg p-6 hover:shadow-lg transition-shadow"
-              whileHover={{ y: -5 }}
+              className="group relative"
+              whileHover={{ y: -10, scale: 1.02 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="bg-primary/10 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                <skill.icon className="w-6 h-6 text-primary" />
+              <div className="bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full">
+                <div className="relative mb-6">
+                  <div className={`bg-gradient-to-r ${skill.color} w-14 h-14 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
+                    <skill.icon className={`w-7 h-7 text-white`} />
+                  </div>
+                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse" />
+                </div>
+                <h3 className="font-semibold text-lg mb-3 text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  {skill.title}
+                </h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {skill.description}
+                </p>
               </div>
-              <h3 className="font-semibold mb-2">{skill.title}</h3>
-              <p className="text-sm text-muted-foreground">{skill.description}</p>
             </motion.div>
           ))}
         </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Calendar, MapPin, ExternalLink, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, ExternalLink, ArrowRight, Briefcase, Star } from "lucide-react";
 
 export function ExperienceSection() {
   const experiences = [
@@ -17,7 +17,9 @@ export function ExperienceSection() {
         "Contributed to improving operational efficiency through technology"
       ],
       technologies: ["JavaScript", "React", "Node.js", "PostgreSQL", "Python"],
-      isActive: false
+      isActive: false,
+      gradient: "from-blue-500 to-purple-500",
+      accentColor: "text-blue-400"
     },
     {
       company: "BioNTech",
@@ -31,7 +33,9 @@ export function ExperienceSection() {
         "Implement solutions to improve research workflow efficiency"
       ],
       technologies: ["Python", "JavaScript", "SQL", "AWS", "Docker", "React"],
-      isActive: true
+      isActive: true,
+      gradient: "from-purple-500 to-pink-500",
+      accentColor: "text-purple-400"
     }
   ];
 
@@ -47,19 +51,25 @@ export function ExperienceSection() {
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.6,
         ease: "easeOut" as const,
       },
     },
   };
 
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="relative py-24 bg-gradient-to-br from-background via-muted/5 to-background overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 -z-10">
+        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
@@ -68,14 +78,20 @@ export function ExperienceSection() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Experience</h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <Briefcase className="w-6 h-6 text-purple-400" />
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+              Experience
+            </h2>
+            <Star className="w-6 h-6 text-cyan-400" />
+          </div>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             My professional journey in software engineering, building solutions for biotech and healthcare.
           </p>
         </motion.div>
 
         <motion.div
-          className="space-y-8"
+          className="space-y-12"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -85,56 +101,67 @@ export function ExperienceSection() {
             <motion.div
               key={index}
               variants={itemVariants}
-              className="group"
+              className="group relative"
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="relative bg-card border border-border rounded-xl p-6 hover:shadow-lg transition-all duration-300 hover:border-primary/50">
+              <div className="relative bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/30">
                 {/* Status indicator */}
                 {exp.isActive && (
-                  <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-400 text-sm font-medium rounded-full">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <div className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-400 text-sm font-medium rounded-full border border-green-500/30 backdrop-blur-sm">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
                     Current
                   </div>
                 )}
 
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-4">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
                   <div className="mb-4 sm:mb-0">
-                    <h3 className="text-xl font-bold text-foreground mb-1">{exp.position}</h3>
-                    <h4 className="text-lg font-semibold text-primary mb-3">{exp.company}</h4>
-                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-muted-foreground text-sm">
+                    <h3 className="text-2xl font-bold text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-2">
+                      {exp.position}
+                    </h3>
+                    <h4 className={`text-xl font-semibold mb-4 bg-gradient-to-r ${exp.gradient} bg-clip-text text-transparent`}>
+                      {exp.company}
+                    </h4>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-muted-foreground">
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4" />
-                        <span>{exp.period}</span>
+                        <Calendar className="w-4 h-4 text-cyan-400" />
+                        <span className="font-medium">{exp.period}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4" />
-                        <span>{exp.location}</span>
+                        <MapPin className="w-4 h-4 text-purple-400" />
+                        <span className="font-medium">{exp.location}</span>
                       </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Description */}
-                <div className="mb-6">
-                  <ul className="space-y-2">
+                <div className="mb-8">
+                  <ul className="space-y-4">
                     {exp.description.map((item, i) => (
-                      <li key={i} className="flex items-start gap-3 text-muted-foreground">
-                        <ArrowRight className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                        <span className="text-sm leading-relaxed">{item}</span>
+                      <li key={i} className="flex items-start gap-4 text-muted-foreground">
+                        <div className="relative flex-shrink-0 mt-1">
+                          <ArrowRight className="w-4 h-4 text-cyan-400" />
+                          <div className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse opacity-60" />
+                        </div>
+                        <span className="leading-relaxed">{item}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-3">
                   {exp.technologies.map((tech, i) => (
-                    <span
+                    <motion.span
                       key={i}
-                      className="px-3 py-1 bg-muted text-foreground font-medium text-xs rounded-full hover:bg-primary/10 hover:text-primary transition-colors"
+                      className="px-4 py-2 bg-gradient-to-r from-background/80 to-muted/40 border border-border/50 text-foreground font-medium text-sm rounded-xl hover:border-primary/50 transition-all duration-300 backdrop-blur-sm"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      transition={{ duration: 0.2 }}
                     >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </div>
@@ -143,23 +170,23 @@ export function ExperienceSection() {
         </motion.div>
 
         <motion.div
-          className="mt-16 text-center"
+          className="mt-20 text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
         >
-          <p className="text-muted-foreground mb-6">
-            Interested in working together? Let's discuss opportunities.
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+            Interested in working together? Let's discuss opportunities and build something amazing.
           </p>
           <motion.button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors inline-flex items-center gap-2"
-            whileHover={{ scale: 1.05 }}
+            className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3"
+            whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >
             Get In Touch
-            <ExternalLink className="w-4 h-4" />
+            <ExternalLink className="w-5 h-5" />
           </motion.button>
         </motion.div>
       </div>
