@@ -53,13 +53,22 @@ export function HeroSection() {
     { icon: Cpu, name: "IoT/Hardware", color: "text-orange-400" },
   ];
 
-  const floatingElements = [
-    { text: "const geek = true;", x: "10%", y: "20%", delay: 0.5 },
-    { text: "npm install coffee", x: "80%", y: "30%", delay: 1.2 },
-    { text: "git commit -m 'magic'", x: "15%", y: "70%", delay: 0.8 },
-    { text: "while(true) { code(); }", x: "85%", y: "80%", delay: 1.5 },
-    { text: "sudo apt install curiosity", x: "70%", y: "15%", delay: 2.0 },
-  ];
+const floatingElements = [
+    { text: "const geek = true;", x: "10%", y: "20%", delay: 0.3 },
+    { text: "npm install coffee", x: "80%", y: "30%", delay: 2.7 },
+    { text: "git commit -m 'magic'", x: "15%", y: "70%", delay: 1.1 },
+    { text: "while(true) { code(); }", x: "85%", y: "80%", delay: 3.4 },
+    { text: "sudo apt install curiosity", x: "70%", y: "15%", delay: 0.6 },
+    { text: "<NextJS />", x: "60%", y: "60%", delay: 2.2 },
+    { text: "def solve(): return '🚀'", x: "30%", y: "50%", delay: 1.8 },
+    { text: "aws deploy --prod", x: "55%", y: "10%", delay: 4.1 },
+    { text: "print('Hello, World!')", x: "40%", y: "80%", delay: 0.9 },
+    { text: "SELECT * FROM ideas;", x: "20%", y: "35%", delay: 3.0 },
+    { text: "public static void main", x: "75%", y: "55%", delay: 1.5 },
+    { text: "let wizard = '🧙‍♂️';", x: "65%", y: "75%", delay: 2.9 },
+    { text: "#include <innovation.h>", x: "35%", y: "15%", delay: 0.4 },
+    { text: "echo 'Stay curious!'", x: "50%", y: "90%", delay: 3.7 },
+];
 
   // Typewriter effect
   useEffect(() => {
@@ -177,15 +186,15 @@ export function HeroSection() {
         {floatingElements.map((element, index) => (
           <motion.div
             key={index}
-            className="absolute text-xs font-mono text-green-400/40 pointer-events-none select-none"
+            className="absolute text-xs font-bold font-mono text-green-400/40 pointer-events-none select-none"
             style={{ left: element.x, top: element.y }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ 
-              opacity: [0, 0.6, 0],
+              opacity: [0, 0.9, 0],
               y: [-20, -40, -60],
             }}
             transition={{
-              duration: 4,
+              duration: 8,
               delay: element.delay,
               repeat: Infinity,
               ease: "easeOut"
@@ -214,12 +223,12 @@ export function HeroSection() {
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
                 <span className="text-foreground">I'm a</span>
                 <br />
-                <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
-                  Code Wizard
+                <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                  Software Engineer
                 </span>
                 <br />
-                <span className="text-foreground">& Tech</span>
-                <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent"> Geek</span>
+                <span className="text-foreground">& Problem</span>
+                <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent"> Solver</span>
               </h1>
             </motion.div>
 
