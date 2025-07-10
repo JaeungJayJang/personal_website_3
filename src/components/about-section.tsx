@@ -76,21 +76,13 @@ export function AboutSection() {
             <h3 className="text-2xl font-bold mb-6">My Journey</h3>
             <div className="space-y-4 text-muted-foreground">
               <p>
-                My journey in software engineering has been driven by a passion for solving complex 
-                problems and creating meaningful impact through technology. With experience at leading 
-                companies like BioNTech and BlueSphere Bio, I've had the opportunity to work on 
-                challenging projects that require both technical expertise and attention to detail.
+                At BioNTech, a large company with great resources and a startup mindset, I focused on building scalable cloud-based pipelines and managing internal databases to help scientists accelerate their research. I enjoyed collaborating with cross-site teams and making complex processes more efficient and accessible.
               </p>
               <p>
-                I specialize in full-stack development, data analysis, and building scalable software 
-                solutions. My technical expertise spans modern web frameworks, backend systems, 
-                databases, and cloud technologies. I enjoy working on projects that combine technical 
-                complexity with real-world impact.
+                Working closely with scientists and researchers, I’ve become adaptable and attentive to the needs of others, helping bridge the gap between technology and science through teamwork and communication.
               </p>
               <p>
-                I'm passionate about continuous learning and staying current with emerging technologies. 
-                I believe in writing clean, maintainable code and collaborating effectively with teams 
-                to deliver high-quality software solutions.
+                My time at BlueSphere Bio gave me the opportunity to thrive in a dynamic, fast-paced environment and tackle new technical challenges. I’m enthusiastic about technology, always eager to learn, and approach every project with curiosity and humility.
               </p>
             </div>
           </motion.div>
