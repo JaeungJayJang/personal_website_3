@@ -134,7 +134,7 @@ export function AboutSection() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {skills.map((skill, index) => (
+          {skills.map((skill) => (
             <motion.div
               key={skill.title}
               variants={itemVariants}

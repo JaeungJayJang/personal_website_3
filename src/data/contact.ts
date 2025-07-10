@@ -1,7 +1,7 @@
-import { Mail, Linkedin, Github, MapPin } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin, LucideIcon } from "lucide-react";
 
 export interface ContactInfo {
-  icon: any;
+  icon: LucideIcon;
   label: string;
   value: string;
   href: string | null;
@@ -12,7 +12,7 @@ export interface ContactInfo {
 export interface SocialLink {
   name: string;
   href: string;
-  icon: any;
+  icon: LucideIcon;
   gradient: string;
 }
 

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Mail, MessageCircle, CheckCircle, AlertCircle, Send, User, Star } from "lucide-react";
 import { useState } from "react";
-import { contactInfo, contactContent } from "@/data/contact";
+import { contactInfo } from "@/data/contact";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({

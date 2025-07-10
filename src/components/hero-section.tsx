@@ -1,29 +1,29 @@
 "use client";
 
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Terminal, Code, Coffee, Zap, Cpu, Database, Globe } from "lucide-react";
 import { useEffect, useState } from "react";
+
+const commands = [
+  "whoami",
+  "cat skills.txt",
+  "ls -la projects/",
+  "git status",
+  "npm run build"
+];
+
+const responses = [
+  "jaeung@dev:~$ Software Engineer & Problem Solver",
+  "jaeung@dev:~$ Next.js, Python, AWS, IoT, Game Dev",
+  "jaeung@dev:~$ blog/ keyboard/ esp32-tyranitar/ catch-a-cat/",
+  "jaeung@dev:~$ On branch main - Always shipping ✨",
+  "jaeung@dev:~$ Building the future, one commit at a time"
+];
 
 export function HeroSection() {
   const [currentCommand, setCurrentCommand] = useState(0);
   const [displayedText, setDisplayedText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
-
-  const commands = [
-    "whoami",
-    "cat skills.txt",
-    "ls -la projects/",
-    "git status",
-    "npm run build"
-  ];
-
-  const responses = [
-    "jaeung@dev:~$ Software Engineer & Problem Solver",
-    "jaeung@dev:~$ Next.js, Python, AWS, IoT, Game Dev",
-    "jaeung@dev:~$ blog/ keyboard/ esp32-tyranitar/ catch-a-cat/",
-    "jaeung@dev:~$ On branch main - Always shipping ✨",
-    "jaeung@dev:~$ Building the future, one commit at a time"
-  ];
 
   const socialLinks = [
     {
@@ -244,7 +244,7 @@ const floatingElements = [
             {/* Tech Stack Icons */}
             <motion.div variants={itemVariants}>
               <div className="flex flex-wrap gap-6">
-                {techStack.map((tech, index) => (
+                {techStack.map((tech) => (
                   <motion.div
                     key={tech.name}
                     className="flex items-center gap-3 bg-background/50 backdrop-blur-sm border border-border/50 rounded-xl px-4 py-3"

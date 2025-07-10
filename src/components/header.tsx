@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import { navigation, siteConfig } from "@/data/site-config";
+import { navigation } from "@/data/site-config";
 import { Logo } from "@/components/logo";
 
 export function Header() {

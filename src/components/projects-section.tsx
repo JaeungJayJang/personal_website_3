@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, Code, Filter, Sparkles, Star } from "lucide-react";
 import { useState } from "react";
-import { projects, projectCategories, type Project } from "@/data/projects";
+import { projects, projectCategories } from "@/data/projects";
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -209,7 +209,7 @@ export function ProjectsSection() {
             animate="visible"
             exit="exit"
           >
-            {regularProjects.map((project, index) => (
+            {regularProjects.map((project) => (
               <motion.div
                 key={project.title}
                 variants={itemVariants}

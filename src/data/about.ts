@@ -1,7 +1,7 @@
-import { Code, Brain, Rocket, Users } from "lucide-react";
+import { Code, Brain, Rocket, Users, LucideIcon } from "lucide-react";
 
 export interface Skill {
-  icon: any;
+  icon: LucideIcon;
   title: string;
   description: string;
   color: string;

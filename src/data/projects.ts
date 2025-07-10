@@ -1,4 +1,4 @@
-import { Globe, Palette, Code, Cpu, Gamepad2 } from "lucide-react";
+import { Globe, Palette, Code, Cpu, Gamepad2, LucideIcon } from "lucide-react";
 
 export interface Project {
   title: string;
@@ -6,7 +6,7 @@ export interface Project {
   shortDesc: string;
   technologies: string[];
   features: string[];
-  icon: any;
+  icon: LucideIcon;
   category: string;
   period?: string;
   hasGithub: boolean;
