@@ -1,37 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Mail, Heart, ArrowUp, Code, Star } from "lucide-react";
+import { Heart, ArrowUp, Mail } from "lucide-react";
+import { socialLinks } from "@/data/contact";
+import { quickLinks, siteConfig } from "@/data/site-config";
 
 export function Footer() {
-  const socialLinks = [
-    {
-      name: "GitHub",
-      href: "https://github.com/JaeungJayJang",
-      icon: Github,
-      gradient: "from-purple-500 to-pink-500"
-    },
-    {
-      name: "LinkedIn",
-      href: "https://linkedin.com/in/jaeung-jang",
-      icon: Linkedin,
-      gradient: "from-blue-500 to-cyan-500"
-    },
-    {
-      name: "Email",
-      href: "mailto:jaeung.jang@gmail.com",
-      icon: Mail,
-      gradient: "from-red-500 to-orange-500"
-    },
-  ];
-
-  const quickLinks = [
-    { name: "About", href: "#about" },
-    { name: "Experience", href: "#experience" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
-  ];
-
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -67,11 +41,10 @@ export function Footer() {
                 onClick={scrollToTop}
                 whileHover={{ scale: 1.05 }}
               >
-                Jaeung Jang
+                {siteConfig.name}
               </motion.h3>
               <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
-                Software Engineer passionate about building innovative solutions 
-                at the intersection of technology and healthcare.
+                {siteConfig.description}
               </p>
               <div className="flex space-x-4">
                 {socialLinks.map((link) => (
@@ -137,18 +110,18 @@ export function Footer() {
               <div className="space-y-4 text-muted-foreground">
                 <p>
                   <a
-                    href="mailto:jaeung.jang@gmail.com"
+                    href={`mailto:${siteConfig.email}`}
                     className="hover:text-primary transition-colors flex items-center gap-2 group"
                   >
                     <Mail className="w-4 h-4 text-red-400 group-hover:scale-110 transition-transform" />
-                    jaeung.jang@gmail.com
+                    {siteConfig.email}
                   </a>
                 </p>
                 <p className="flex items-center gap-2">
                   <span className="inline-flex items-center justify-center w-4 h-4 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mr-2 align-middle">
                     <span className="w-2 h-2 bg-white rounded-full block" />
                   </span>
-                  United States
+                  {siteConfig.location}
                 </p>
                 <p className="text-sm bg-gradient-to-r from-background/50 to-muted/30 border border-border/50 rounded-lg p-3 backdrop-blur-sm">
                   Open to new opportunities and collaborations
@@ -167,7 +140,7 @@ export function Footer() {
           viewport={{ once: true }}
         >
           <p className="text-muted-foreground text-sm mb-4 sm:mb-0">
-            © {new Date().getFullYear()} Jaeung Jang. All rights reserved.
+            © {new Date().getFullYear()} {siteConfig.name}. All rights reserved.
           </p>
           
           <div className="flex items-center gap-4">

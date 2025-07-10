@@ -4,13 +4,7 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { Moon, Sun, Menu, X, Star } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const navigation = [
-  { name: "About", href: "#about" },
-  { name: "Experience", href: "#experience" },
-  { name: "Projects", href: "#projects" },
-  { name: "Contact", href: "#contact" },
-];
+import { navigation, siteConfig } from "@/data/site-config";
 
 export function Header() {
   const [mounted, setMounted] = useState(false);
@@ -48,7 +42,7 @@ export function Header() {
               href="#" 
               className="text-xl font-bold text-gradient bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent hover:scale-105 transition-transform"
             >
-              Jaeung Jang
+              {siteConfig.name}
             </a>
           </motion.div>
 

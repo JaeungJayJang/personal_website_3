@@ -1,39 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Brain, Rocket, Users, Sparkles, Star } from "lucide-react";
+import { Sparkles, Star } from "lucide-react";
+import { skills, aboutContent } from "@/data/about";
 
 export function AboutSection() {
-  const skills = [
-    {
-      icon: Code,
-      title: "Full-Stack Development",
-      description: "Experienced in modern web technologies including React, Node.js, and Python.",
-      color: "from-blue-500 to-purple-500",
-      iconColor: "text-blue-400"
-    },
-    {
-      icon: Brain,
-      title: "Problem Solving",
-      description: "Skilled at analyzing complex problems and implementing effective software solutions.",
-      color: "from-purple-500 to-pink-500",
-      iconColor: "text-purple-400"
-    },
-    {
-      icon: Rocket,
-      title: "Software Engineering",
-      description: "Building scalable applications with focus on performance and maintainability.",
-      color: "from-pink-500 to-orange-500",
-      iconColor: "text-pink-400"
-    },
-    {
-      icon: Users,
-      title: "Team Collaboration",
-      description: "Working effectively in cross-functional teams and agile development environments.",
-      color: "from-orange-500 to-cyan-500",
-      iconColor: "text-orange-400"
-    },
-  ];
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -77,13 +48,12 @@ export function AboutSection() {
           <div className="flex items-center justify-center gap-3 mb-6">
             <Star className="w-6 h-6 text-cyan-400" />
             <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
-              About Me
+              {aboutContent.title}
             </h2>
             <Sparkles className="w-6 h-6 text-purple-400" />
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            I'm a software engineer with a passion for building innovative solutions and 
-            solving complex problems through technology and data-driven approaches.
+            {aboutContent.subtitle}
           </p>
         </motion.div>
 
@@ -96,18 +66,24 @@ export function AboutSection() {
           >
             <div className="bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
               <h3 className="text-2xl font-bold mb-6 text-gradient bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                My Journey
+                {aboutContent.journeyTitle}
               </h3>
               <div className="space-y-6 text-muted-foreground leading-relaxed">
-                <p>
-                  At <span className="text-cyan-400 font-semibold">BioNTech</span>, a large company with great resources and a startup mindset, I focused on building scalable cloud-based pipelines and managing internal databases to help scientists accelerate their research. I enjoyed collaborating with cross-site teams and making complex processes more efficient and accessible.
-                </p>
-                <p>
-                  Working closely with scientists and researchers, I've become adaptable and attentive to the needs of others, helping bridge the gap between technology and science through teamwork and communication.
-                </p>
-                <p>
-                  My time at <span className="text-purple-400 font-semibold">BlueSphere Bio</span> gave me the opportunity to thrive in a dynamic, fast-paced environment and tackle new technical challenges. I'm enthusiastic about technology, always eager to learn, and approach every project with curiosity and humility.
-                </p>
+                {aboutContent.journeyParagraphs.map((paragraph, index) => (
+                  <p key={index}>
+                    {index === 0 && (
+                      <>
+                        At <span className="text-cyan-400 font-semibold">BioNTech</span>, a large company with great resources and a startup mindset, I focused on building scalable cloud-based pipelines and managing internal databases to help scientists accelerate their research. I enjoyed collaborating with cross-site teams and making complex processes more efficient and accessible.
+                      </>
+                    )}
+                    {index === 1 && paragraph}
+                    {index === 2 && (
+                      <>
+                        My time at <span className="text-purple-400 font-semibold">BlueSphere Bio</span> gave me the opportunity to thrive in a dynamic, fast-paced environment and tackle new technical challenges. I'm enthusiastic about technology, always eager to learn, and approach every project with curiosity and humility.
+                      </>
+                    )}
+                  </p>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -124,26 +100,26 @@ export function AboutSection() {
                 <div className="relative">
                   <div className="absolute -top-2 -left-2 w-4 h-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full animate-pulse" />
                   <h4 className="font-semibold text-lg mb-3 text-gradient bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                    Current Focus
+                    {aboutContent.personalInfo.currentFocus.title}
                   </h4>
                   <p className="text-muted-foreground">
-                    Software engineering, full-stack development, and building innovative solutions
+                    {aboutContent.personalInfo.currentFocus.description}
                   </p>
                 </div>
                 <div className="relative">
                   <div className="absolute -top-2 -left-2 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse delay-1000" />
                   <h4 className="font-semibold text-lg mb-3 text-gradient bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                    Location
+                    {aboutContent.personalInfo.location.title}
                   </h4>
-                  <p className="text-muted-foreground">Virginia, United States</p>
+                  <p className="text-muted-foreground">{aboutContent.personalInfo.location.description}</p>
                 </div>
                 <div className="relative">
                   <div className="absolute -top-2 -left-2 w-4 h-4 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full animate-pulse delay-2000" />
                   <h4 className="font-semibold text-lg mb-3 text-gradient bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
-                    Interests
+                    {aboutContent.personalInfo.interests.title}
                   </h4>
                   <p className="text-muted-foreground">
-                    Web Development, Data Analysis, Cloud Computing, Open Source
+                    {aboutContent.personalInfo.interests.description}
                   </p>
                 </div>
               </div>

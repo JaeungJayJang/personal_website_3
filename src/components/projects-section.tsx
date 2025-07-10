@@ -1,118 +1,12 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, Code, Database, Globe, Gamepad2, Cpu, Palette, Filter, Sparkles, Star } from "lucide-react";
+import { Github, ExternalLink, Code, Filter, Sparkles, Star } from "lucide-react";
 import { useState } from "react";
+import { projects, projectCategories, type Project } from "@/data/projects";
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
-
-  const projects = [
-    {
-      title: "Developer's Blog",
-      description: "A personal blog to document technical projects using Next.js (frontend) and FastAPI (backend), with secure cloud deployment on AWS. Integrated Blocknote.js for rich text editing, Auth.js for authentication, and MongoDB with Beanie ODM.",
-      shortDesc: "Full-stack blog platform with rich text editing and cloud deployment",
-      technologies: ["Next.js", "FastAPI", "MongoDB", "Blocknote.js", "Auth.js", "AWS", "Beanie ODM"],
-      features: [
-        "Rich text editing with Blocknote.js",
-        "Secure authentication with Auth.js",
-        "Cloud deployment on AWS",
-        "MongoDB with Beanie ODM for data management"
-      ],
-      icon: Globe,
-      category: "Web Development",
-      period: "Jul 2024 – Present",
-      hasGithub: false,
-      hasDemo: true,
-      featured: true,
-      gradient: "from-blue-500/20 to-purple-500/20",
-      accentColor: "text-blue-400",
-      bgColor: "bg-blue-500/10"
-    },
-    {
-      title: "jang.jaeung.com",
-      description: "Portfolio site to showcase design aesthetic and technical skills using Next.js, Tailwind CSS, and Spline. Features a clean and responsive layout, deployed on GitHub Pages via GitHub Actions.",
-      shortDesc: "Portfolio website with 3D animations and modern design",
-      technologies: ["Next.js", "Tailwind CSS", "Spline", "GitHub Actions", "GitHub Pages"],
-      features: [
-        "Clean and responsive layout",
-        "Spline 3D animations",
-        "Automated deployment with GitHub Actions",
-        "Optimized for performance and design"
-      ],
-      icon: Palette,
-      category: "Portfolio",
-      period: "Jul 2024 – Present",
-      hasGithub: true,
-      hasDemo: true,
-      featured: false,
-      gradient: "from-emerald-500/20 to-teal-500/20",
-      accentColor: "text-emerald-400",
-      bgColor: "bg-emerald-500/10"
-    },
-    {
-      title: "Custom Keyboard",
-      description: "Custom firmware using QMK for my first split keyboard! Hardware project featuring custom key mapping and personalized configuration.",
-      shortDesc: "QMK firmware for custom split keyboard design",
-      technologies: ["Pro Micro", "QMK", "C"],
-      features: [
-        "Custom split keyboard design",
-        "QMK firmware programming",
-        "Hardware assembly and configuration",
-        "Personalized key mapping"
-      ],
-      icon: Code,
-      category: "Hardware",
-      hasGithub: false,
-      hasDemo: false,
-      featured: false,
-      gradient: "from-orange-500/20 to-red-500/20",
-      accentColor: "text-orange-400",
-      bgColor: "bg-orange-500/10"
-    },
-    {
-      title: "ESP32 Tyranitar",
-      description: "3D pokemon, Tyranitar, powered with ESP32 and micropython. Interactive IoT project combining 3D printing with microcontroller programming.",
-      shortDesc: "3D printed Pokemon with ESP32 microcontroller",
-      technologies: ["ESP32", "MicroPython", "3D Printing"],
-      features: [
-        "3D printed Pokemon model",
-        "ESP32 microcontroller integration",
-        "MicroPython programming",
-        "Interactive hardware project"
-      ],
-      icon: Cpu,
-      category: "IoT",
-      hasGithub: false,
-      hasDemo: false,
-      featured: false,
-      gradient: "from-purple-500/20 to-pink-500/20",
-      accentColor: "text-purple-400",
-      bgColor: "bg-purple-500/10"
-    },
-    {
-      title: "Catch a Cat",
-      description: "Mobile game to catch as many coins as possible without getting caught by the dog, built with Flutter and Flame engine for cross-platform gameplay.",
-      shortDesc: "Cross-platform mobile game built with Flutter",
-      technologies: ["Flutter", "Dart", "Flame Engine"],
-      features: [
-        "Cross-platform mobile game",
-        "Game physics and collision detection",
-        "Sprite animations and graphics",
-        "Score tracking and gameplay mechanics"
-      ],
-      icon: Gamepad2,
-      category: "Mobile Game",
-      hasGithub: false,
-      hasDemo: false,
-      featured: false,
-      gradient: "from-cyan-500/20 to-blue-500/20",
-      accentColor: "text-cyan-400",
-      bgColor: "bg-cyan-500/10"
-    }
-  ];
-
-  const categories = ["All", "Web Development", "Portfolio", "Hardware", "IoT", "Mobile Game"];
 
   const filteredProjects = activeFilter === "All" 
     ? projects 
@@ -190,7 +84,7 @@ export function ProjectsSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           viewport={{ once: true }}
         >
-          {categories.map((category) => (
+          {projectCategories.map((category) => (
             <motion.button
               key={category}
               onClick={() => setActiveFilter(category)}

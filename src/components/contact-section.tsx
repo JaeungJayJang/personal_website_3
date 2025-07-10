@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Linkedin, Github, MessageCircle, MapPin, CheckCircle, AlertCircle, Send, User, Star } from "lucide-react";
+import { Mail, MessageCircle, CheckCircle, AlertCircle, Send, User, Star } from "lucide-react";
 import { useState } from "react";
+import { contactInfo, contactContent } from "@/data/contact";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -14,41 +15,6 @@ export function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
-
-  const contactInfo = [
-    {
-      icon: Mail,
-      label: "Email",
-      value: "jaeung.jang@gmail.com",
-      href: "mailto:jaeung.jang@gmail.com",
-      gradient: "from-red-500 to-orange-500",
-      accentColor: "text-red-400"
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "linkedin.com/in/jaeung-jang",
-      href: "https://linkedin.com/in/jaeung-jang",
-      gradient: "from-blue-500 to-cyan-500",
-      accentColor: "text-blue-400"
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "github.com/JaeungJayJang",
-      href: "https://github.com/JaeungJayJang",
-      gradient: "from-purple-500 to-pink-500",
-      accentColor: "text-purple-400"
-    },
-    {
-      icon: MapPin,
-      label: "Location",
-      value: "United States",
-      href: null,
-      gradient: "from-green-500 to-emerald-500",
-      accentColor: "text-green-400"
-    },
-  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
