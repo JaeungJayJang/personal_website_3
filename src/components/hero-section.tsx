@@ -255,7 +255,6 @@ const floatingElements = [
                     }}
                     initial={{ opacity: 0, rotateX: -30 }}
                     animate={{ opacity: 1, rotateX: 0 }}
-                    transition={{ delay: 0.8 + index * 0.1 }}
                     style={{ transformStyle: "preserve-3d" }}
                   >
                     <tech.icon className={`w-6 h-6 ${tech.color}`} />
@@ -315,11 +314,6 @@ const floatingElements = [
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`text-muted-foreground ${link.color} transition-all duration-300`}
-                    whileHover={{ 
-                      scale: 1.2, 
-                      rotateY: 15,
-                      filter: "drop-shadow(0 0 8px currentColor)"
-                    }}
                     whileTap={{ scale: 0.9 }}
                   >
                     <link.icon className="w-6 h-6" />
