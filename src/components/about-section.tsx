@@ -98,7 +98,6 @@ export function AboutSection() {
             <div className="bg-gradient-to-br from-background/80 to-muted/20 border border-border/50 rounded-2xl p-8 shadow-lg backdrop-blur-sm">
               <div className="space-y-8">
                 <div className="relative">
-                  <div className="absolute -top-2 -left-2 w-4 h-4 bg-gradient-to-r from-cyan-500 to-purple-500 rounded-full animate-pulse" />
                   <h4 className="font-semibold text-lg mb-3 text-gradient bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                     {aboutContent.personalInfo.currentFocus.title}
                   </h4>
@@ -107,14 +106,12 @@ export function AboutSection() {
                   </p>
                 </div>
                 <div className="relative">
-                  <div className="absolute -top-2 -left-2 w-4 h-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-pulse delay-1000" />
                   <h4 className="font-semibold text-lg mb-3 text-gradient bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     {aboutContent.personalInfo.location.title}
                   </h4>
                   <p className="text-muted-foreground">{aboutContent.personalInfo.location.description}</p>
                 </div>
                 <div className="relative">
-                  <div className="absolute -top-2 -left-2 w-4 h-4 bg-gradient-to-r from-pink-500 to-orange-500 rounded-full animate-pulse delay-2000" />
                   <h4 className="font-semibold text-lg mb-3 text-gradient bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
                     {aboutContent.personalInfo.interests.title}
                   </h4>
