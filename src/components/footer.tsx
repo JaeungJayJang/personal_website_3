@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Heart, ArrowUp, Mail } from "lucide-react";
 import { socialLinks } from "@/data/contact";
 import { quickLinks, siteConfig } from "@/data/site-config";
+import { Logo } from "@/components/logo";
 
 export function Footer() {
   const scrollToSection = (href: string) => {
@@ -36,13 +37,15 @@ export function Footer() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <motion.h3
-                className="text-2xl font-bold mb-4 cursor-pointer text-gradient bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent"
-                onClick={scrollToTop}
-                whileHover={{ scale: 1.05 }}
-              >
-                {siteConfig.name}
-              </motion.h3>
+              <div className="flex items-center gap-3 mb-4">
+                <motion.div
+                  onClick={scrollToTop}
+                  whileHover={{ scale: 1.05 }}
+                  className="cursor-pointer"
+                >
+                  <Logo showFullName={true} size="lg" />
+                </motion.div>
+              </div>
               <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
                 {siteConfig.description}
               </p>

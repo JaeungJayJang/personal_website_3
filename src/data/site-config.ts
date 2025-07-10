@@ -28,7 +28,7 @@ export const siteConfig = {
   description: "Software Engineer passionate about building innovative solutions at the intersection of technology and healthcare.",
   tagline: "Building the future, one commit at a time",
   location: "Virginia, United States",
-  email: "jaeung.jang@gmail.com",
+  email: "wodndckato@gmail.com",
   github: "https://github.com/JaeungJayJang",
   linkedin: "https://linkedin.com/in/jaeung-jang",
   website: "https://jang.jaeung.com"

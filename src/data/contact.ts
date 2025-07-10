@@ -20,8 +20,8 @@ export const contactInfo: ContactInfo[] = [
   {
     icon: Mail,
     label: "Email",
-    value: "jaeung.jang@gmail.com",
-    href: "mailto:jaeung.jang@gmail.com",
+    value: "wodndckato@gmail.com",
+    href: "mailto:wodndckato@gmail.com",
     gradient: "from-red-500 to-orange-500",
     accentColor: "text-red-400"
   },
@@ -66,7 +66,7 @@ export const socialLinks: SocialLink[] = [
   },
   {
     name: "Email",
-    href: "mailto:jaeung.jang@gmail.com",
+    href: "mailto:wodndckato@gmail.com",
     icon: Mail,
     gradient: "from-red-500 to-orange-500"
   },

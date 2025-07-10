@@ -27,7 +27,7 @@
    SMTP_PORT=587
    SMTP_USER=your-email@gmail.com
    SMTP_PASS=your-app-password
-   CONTACT_EMAIL=jaeung.jang@gmail.com
+   CONTACT_EMAIL=wodndckato@gmail.com
    ```
 
 ### Option 2: Deploy via CLI
@@ -75,7 +75,7 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=your-email@gmail.com
 SMTP_PASS=your-app-password
-CONTACT_EMAIL=jaeung.jang@gmail.com
+CONTACT_EMAIL=wodndckato@gmail.com
 ```
 
 ## ✅ Testing

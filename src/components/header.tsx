@@ -2,9 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { Moon, Sun, Menu, X, Star } from "lucide-react";
+import { Moon, Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigation, siteConfig } from "@/data/site-config";
+import { Logo } from "@/components/logo";
 
 export function Header() {
   const [mounted, setMounted] = useState(false);
@@ -33,17 +34,9 @@ export function Header() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex items-center gap-2"
+            className="flex items-center"
           >
-            <div className="bg-gradient-to-r from-cyan-500 to-purple-500 p-2 rounded-lg">
-              <Star className="w-5 h-5 text-white" />
-            </div>
-            <a 
-              href="#" 
-              className="text-xl font-bold text-gradient bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent hover:scale-105 transition-transform"
-            >
-              {siteConfig.name}
-            </a>
+            <Logo showFullName={true} size="lg" />
           </motion.div>
 
           {/* Desktop Navigation */}

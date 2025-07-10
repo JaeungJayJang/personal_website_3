@@ -83,7 +83,7 @@ Build the project with `npm run build` and deploy the `out` folder to any static
 
 ## 📧 Contact
 
-- **Email**: jaeung.jang@gmail.com
+- **Email**: wodndckato@gmail.com
 - **LinkedIn**: [linkedin.com/in/jaeung-jang](https://linkedin.com/in/jaeung-jang)
 - **GitHub**: [github.com/JaeungJayJang](https://github.com/JaeungJayJang)
 

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { siteConfig } from "@/data/site-config";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -14,23 +15,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jaeung Jang | Software Engineer",
-  description: "Software Engineer passionate about building innovative solutions. Experience at BioNTech and BlueSphere Bio. Specializing in full-stack development, machine learning, and modern web technologies.",
+  title: siteConfig.title,
+  description: siteConfig.description,
   keywords: ["Jaeung Jang", "Software Engineer", "Full Stack Developer", "Machine Learning", "BioNTech", "BlueSphere Bio"],
-  authors: [{ name: "Jaeung Jang" }],
-  creator: "Jaeung Jang",
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/favicon-48x48.svg", sizes: "48x48", type: "image/svg+xml" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.svg", sizes: "180x180", type: "image/svg+xml" },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://jang.jaeung.com",
-    title: "Jaeung Jang | Software Engineer",
-    description: "Software Engineer passionate about building innovative solutions.",
-    siteName: "Jaeung Jang Portfolio",
+    url: siteConfig.website,
+    title: siteConfig.title,
+    description: siteConfig.description,
+    siteName: `${siteConfig.name} Portfolio`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Jaeung Jang | Software Engineer",
-    description: "Software Engineer passionate about building innovative solutions.",
+    title: siteConfig.title,
+    description: siteConfig.description,
   },
 };
 
@@ -41,6 +51,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="manifest" href="/manifest.json" />
+      </head>
       <body
         className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}
       >
