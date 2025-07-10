@@ -40,7 +40,7 @@ export function HeroSection() {
     },
     {
       name: "Email",
-      href: "mailto:jaeung.jang@gmail.com",
+      href: "mailto:wodndckato@gmail.com",
       icon: Mail,
       color: "hover:text-green-400",
     },
