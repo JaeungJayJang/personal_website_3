@@ -64,7 +64,7 @@ export function ExperienceSection() {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {[...experiences].reverse().map((exp, index) => (
+          {experiences.map((exp, index) => (
             <motion.div
               key={index}
               variants={itemVariants}

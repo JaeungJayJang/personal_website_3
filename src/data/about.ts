@@ -1,4 +1,4 @@
-import { Code, Brain, Rocket, Users, LucideIcon } from "lucide-react";
+import { Code, LucideIcon, Database, Cloud, Workflow } from "lucide-react";
 
 export interface Skill {
   icon: LucideIcon;
@@ -10,30 +10,30 @@ export interface Skill {
 
 export const skills: Skill[] = [
   {
-    icon: Code,
-    title: "Full-Stack Development",
-    description: "Experienced in modern web technologies including React, Node.js, and Python.",
+    icon: Workflow,
+    title: "Bioinformatics Workflows",
+    description: "Expert in Nextflow for building scalable, cloud-based bioinformatics pipelines that cut analysis runtime from overnight to hours.",
     color: "from-blue-500 to-purple-500",
     iconColor: "text-blue-400"
   },
   {
-    icon: Brain,
-    title: "Problem Solving",
-    description: "Skilled at analyzing complex problems and implementing effective software solutions.",
+    icon: Cloud,
+    title: "Cloud Architecture",
+    description: "Experienced in AWS cloud services, HPC clusters, and hybrid architectures with 40% cost optimization achievements.",
     color: "from-purple-500 to-pink-500",
     iconColor: "text-purple-400"
   },
   {
-    icon: Rocket,
-    title: "Software Engineering",
-    description: "Building scalable applications with focus on performance and maintainability.",
+    icon: Code,
+    title: "Full-Stack Development",
+    description: "Proficient in Next.js, FastAPI, React, and Python for building workflow management platforms and analysis tools.",
     color: "from-pink-500 to-orange-500",
     iconColor: "text-pink-400"
   },
   {
-    icon: Users,
-    title: "Team Collaboration",
-    description: "Working effectively in cross-functional teams and agile development environments.",
+    icon: Database,
+    title: "Data Platform Design",
+    description: "Co-authored patents and designed scalable data management platforms, integrating LDAP authentication and centralized databases.",
     color: "from-orange-500 to-cyan-500",
     iconColor: "text-orange-400"
   },
@@ -41,17 +41,17 @@ export const skills: Skill[] = [
 
 export const aboutContent = {
   title: "About Me",
-  subtitle: "I'm a software engineer with a passion for building innovative solutions and solving complex problems through technology and data-driven approaches.",
+  subtitle: "I'm a software engineer specializing in bioinformatics workflows, cloud architecture, and full-stack development. I build scalable solutions that accelerate scientific research and optimize computational resources.",
   journeyTitle: "My Journey",
   journeyParagraphs: [
-    "At BioNTech, a large company with great resources and a startup mindset, I focused on building scalable cloud-based pipelines and managing internal databases to help scientists accelerate their research. I enjoyed collaborating with cross-site teams and making complex processes more efficient and accessible.",
-    "Working closely with scientists and researchers, I've become adaptable and attentive to the needs of others, helping bridge the gap between technology and science through teamwork and communication.",
-    "My time at BlueSphere Bio gave me the opportunity to thrive in a dynamic, fast-paced environment and tackle new technical challenges. I'm enthusiastic about technology, always eager to learn, and approach every project with curiosity and humility."
+    "At BioNTech, a large company with great resources and a startup mindset, I engineer scalable cloud-based bioinformatics workflows using Nextflow, cutting analysis runtime from overnight to hours. I collaborate with cross-site teams to design centralized internal databases that facilitate data accessibility and support organizational goals.",
+    "Working closely with scientists and researchers, I've become adaptable and attentive to their needs, helping bridge the gap between technology and science. I support CI/CD pipeline best practices, version control, and documentation standards to ensure reproducible workflows and seamless team collaboration.",
+    "My time at BlueSphere Bio gave me the opportunity to develop a Nextflow-driven workflow management platform using Next.js and FastAPI, co-author patent filings, and achieve a 40% reduction in AWS costs through optimization. I transformed hybrid server architectures by integrating Slurm HPC clusters with LDAP authentication, significantly boosting research throughput."
   ],
   personalInfo: {
     currentFocus: {
       title: "Current Focus",
-      description: "Software engineering, full-stack development, and building innovative solutions"
+      description: "Bioinformatics workflows, cloud-based pipelines, and scalable data management platforms"
     },
     location: {
       title: "Location",
@@ -59,7 +59,7 @@ export const aboutContent = {
     },
     interests: {
       title: "Interests",
-      description: "Web Development, Data Analysis, Cloud Computing, Open Source"
+      description: "Bioinformatics, Cloud Computing, Workflow Automation, Research Technology"
     }
   }
 };
