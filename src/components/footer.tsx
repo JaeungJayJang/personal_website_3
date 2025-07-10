@@ -78,7 +78,7 @@ export function Footer() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h4 className="font-semibold text-lg mb-6 text-gradient bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <h4 className="font-semibold text-lg mb-6 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                 Quick Links
               </h4>
               <ul className="space-y-4">
@@ -107,7 +107,7 @@ export function Footer() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <h4 className="font-semibold text-lg mb-6 text-gradient bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h4 className="font-semibold text-lg mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Get In Touch
               </h4>
               <div className="space-y-4 text-muted-foreground">

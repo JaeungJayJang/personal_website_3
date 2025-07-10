@@ -23,7 +23,7 @@ export function Logo({ size = "md", className = "", showFullName = false }: Logo
     <div className={`flex items-center ${containerClasses[size]} ${className}`}>
       {/* Text-based logo */}
       <div className="relative">
-        <span className={`font-bold bg-gradient-to-r from-cyan-500 via-purple-500 to-pink-500 bg-clip-text text-transparent ${sizeClasses[size]}`}>
+        <span className={`font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent ${sizeClasses[size]}`}>
           {showFullName ? "Jaeung Jang" : "JJ"}
         </span>
         {/* Subtle accent dot */}

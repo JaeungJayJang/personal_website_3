@@ -65,7 +65,7 @@ export function ProjectsSection() {
         >
           <div className="flex items-center justify-center gap-3 mb-6">
             <Code className="w-6 h-6 text-blue-400" />
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Featured Projects
             </h2>
             <Sparkles className="w-6 h-6 text-purple-400" />
@@ -121,8 +121,9 @@ export function ProjectsSection() {
                         <featuredProject.icon className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <span className="px-4 py-2 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 text-yellow-400 border border-yellow-500/30 text-sm font-medium rounded-full backdrop-blur-sm">
-                          ⭐ Featured Project
+                        <span className="px-4 py-2 bg-gradient-to-r from-yellow-400/80 via-orange-400/70 to-yellow-500/80 text-white border-2 border-yellow-400 shadow-md text-sm font-semibold rounded-full backdrop-blur-sm flex items-center gap-2 animate-pulse-slow">
+                          <Star className="w-4 h-4 text-white drop-shadow" />
+                          Featured Project
                         </span>
                         {featuredProject.period && (
                           <p className="text-sm text-muted-foreground mt-2">{featuredProject.period}</p>
@@ -130,7 +131,7 @@ export function ProjectsSection() {
                       </div>
                     </div>
                     
-                    <h3 className="text-3xl font-bold mb-4 text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                    <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                       {featuredProject.title}
                     </h3>
                     
@@ -180,7 +181,7 @@ export function ProjectsSection() {
 
                   <div className="relative">
                     <div className="bg-gradient-to-br from-background/80 to-muted/20 border border-border/50 rounded-2xl p-6 shadow-lg backdrop-blur-sm">
-                      <h4 className="text-lg font-semibold mb-4 text-gradient bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                      <h4 className="text-lg font-semibold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                         Key Features
                       </h4>
                       <ul className="space-y-3">
@@ -227,7 +228,7 @@ export function ProjectsSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-3 text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     {project.title}
                   </h3>
                   

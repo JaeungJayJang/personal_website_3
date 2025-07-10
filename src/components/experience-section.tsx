@@ -47,7 +47,7 @@ export function ExperienceSection() {
         >
           <div className="flex items-center justify-center gap-3 mb-6">
             <Briefcase className="w-6 h-6 text-purple-400" />
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
               Experience
             </h2>
             <Star className="w-6 h-6 text-cyan-400" />
@@ -84,10 +84,10 @@ export function ExperienceSection() {
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
                   <div className="mb-4 sm:mb-0">
-                    <h3 className="text-2xl font-bold text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent mb-2">
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
                       {exp.position}
                     </h3>
-                    <h4 className={`text-xl font-semibold mb-4 bg-gradient-to-r ${exp.gradient} bg-clip-text text-transparent`}>
+                    <h4 className="text-xl font-semibold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                       {exp.company}
                     </h4>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-muted-foreground">

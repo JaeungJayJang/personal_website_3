@@ -98,7 +98,7 @@ export function ContactSection() {
         >
           <div className="flex items-center justify-center gap-3 mb-6">
             <MessageCircle className="w-6 h-6 text-cyan-400" />
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-foreground via-primary to-foreground bg-clip-text text-transparent">
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
               Get In Touch
             </h2>
             <Star className="w-6 h-6 text-purple-400" />
@@ -117,7 +117,7 @@ export function ContactSection() {
             viewport={{ once: true }}
           >
             <div className="bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-              <h3 className="text-2xl font-bold mb-6 text-gradient bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Let's Connect
               </h3>
               <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
@@ -147,7 +147,7 @@ export function ContactSection() {
                         <item.icon className="w-5 h-5 text-white" />
                       </div>
                       <div className="flex-1">
-                        <p className="font-semibold text-lg text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                        <p className="font-semibold text-lg bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                           {item.label}
                         </p>
                         {item.href ? (
@@ -177,7 +177,7 @@ export function ContactSection() {
             viewport={{ once: true }}
             className="bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg"
           >
-            <h3 className="text-2xl font-bold mb-6 text-gradient bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
               Quick Contact
             </h3>
             
@@ -203,7 +203,7 @@ export function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2 text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  <label htmlFor="name" className="block text-sm font-medium mb-2 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                     Name
                   </label>
                   <div className="relative">
@@ -222,7 +222,7 @@ export function ContactSection() {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2 text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                  <label htmlFor="email" className="block text-sm font-medium mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                     Email
                   </label>
                   <div className="relative">
@@ -242,7 +242,7 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2 text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                <label htmlFor="subject" className="block text-sm font-medium mb-2 bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
                   Subject
                 </label>
                 <input
@@ -258,7 +258,7 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2 text-gradient bg-gradient-to-r from-foreground to-muted-foreground bg-clip-text text-transparent">
+                <label htmlFor="message" className="block text-sm font-medium mb-2 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
                   Message
                 </label>
                 <textarea
