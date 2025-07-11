@@ -74,7 +74,7 @@ export function AboutSection() {
                     return <p key={index}>{paragraph}</p>;
                   }
                   
-                  let text = paragraph.text;
+                  const text = paragraph.text;
                   const parts = [];
                   let lastIndex = 0;
                   
