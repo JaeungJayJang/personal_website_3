@@ -253,25 +253,31 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="flex gap-3 mt-auto">
-                    {project.hasGithub && (
-                      <motion.button
+                    {project.hasGithub && project.githubUrl && (
+                      <motion.a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center gap-2 px-4 py-2 bg-background/80 backdrop-blur-sm border border-border/50 rounded-lg hover:bg-accent transition-colors text-sm"
                         whileHover={{ scale: 1.05 }}
                         whileTap={{ scale: 0.95 }}
                       >
                         <Github className="w-4 h-4" />
                         Code
-                      </motion.button>
+                      </motion.a>
                     )}
-                    {project.hasDemo && (
-                      <motion.button
-                        className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/80 to-purple-500/80 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-sm"
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
+                    {project.hasDemo && project.demoUrl && (
+                      <motion.a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/80 to-purple-500/80 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-sm"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
                       >
-                        <ExternalLink className="w-4 h-4" />
-                        Demo
-                      </motion.button>
+                      <ExternalLink className="w-4 h-4" />
+                      Demo
+                      </motion.a>
                     )}
                   </div>
                 </div>
