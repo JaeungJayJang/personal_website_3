@@ -75,8 +75,8 @@ export function ExperienceSection() {
               <div className="relative bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/30">
                 {/* Status indicator */}
                 {exp.isActive && (
-                  <div className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-400 text-sm font-medium rounded-full border border-green-500/30 backdrop-blur-sm">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                  <div className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600/80 to-emerald-600/80 text-white text-sm font-medium rounded-full border border-green-500/50 shadow-lg backdrop-blur-sm">
+                    <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                     Current
                   </div>
                 )}
