@@ -22,9 +22,9 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "Developer's Blog",
-    description: "A personal blog to document technical projects using Next.js (frontend) and FastAPI (backend), with secure cloud deployment on AWS. Integrated Blocknote.js for rich text editing, Auth.js for authentication, and MongoDB with Beanie ODM.",
+    description: "A personal blog to document technical projects using Next.js (frontend) and FastAPI (backend). Integrated Blocknote.js for rich text editing, Auth.js for authentication, and MongoDB with Beanie ODM.",
     shortDesc: "Full-stack blog platform with rich text editing and cloud deployment",
-    technologies: ["Next.js", "FastAPI", "MongoDB", "Blocknote.js", "Auth.js", "AWS", "Beanie ODM"],
+    technologies: ["Next.js", "FastAPI", "MongoDB", "Blocknote.js", "Auth.js", "Beanie ODM"],
     features: [
       "Rich text editing with Blocknote.js",
       "Secure authentication with Auth.js",
@@ -34,10 +34,10 @@ export const projects: Project[] = [
     icon: Globe,
     category: "Web Development",
     period: "Jul 2024 – Present",
-    hasGithub: false,
-    hasDemo: true,
+    hasGithub: false, // disable until they are back online again
+    hasDemo: false,  // disable until they are back online again
     featured: true,
-    gradient: "from-blue-500/20 to-purple-500/20",
+    gradient: "from-blue-500/60 to-purple-500/60",
     accentColor: "text-blue-400",
     bgColor: "bg-blue-500/10",
     demoUrl: "https://blog.jaeung.dev" // Add your actual demo URL
@@ -45,8 +45,8 @@ export const projects: Project[] = [
   {
     title: "jang.jaeung.com",
     description: "Portfolio site to showcase design aesthetic and technical skills using Next.js, Tailwind CSS, and Spline. Features a clean and responsive layout, deployed on GitHub Pages via GitHub Actions.",
-    shortDesc: "Portfolio website with 3D animations and modern design",
-    technologies: ["Next.js", "Tailwind CSS", "Spline", "GitHub Actions", "GitHub Pages"],
+    shortDesc: "Portfolio website showcasing 3D animations designed with Spline and built with Next.js",
+    technologies: ["Next.js", "Tailwind CSS", "Spline"],
     features: [
       "Clean and responsive layout",
       "Spline 3D animations",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     hasGithub: true,
     hasDemo: true,
     featured: false,
-    gradient: "from-emerald-500/20 to-teal-500/20",
+    gradient: "from-emerald-500/60 to-teal-500/60",
     accentColor: "text-emerald-400",
     bgColor: "bg-emerald-500/10",
     githubUrl: "https://github.com/JaeungJayJang/personal_website",
@@ -81,7 +81,7 @@ export const projects: Project[] = [
     hasGithub: false,
     hasDemo: false,
     featured: false,
-    gradient: "from-orange-500/20 to-red-500/20",
+    gradient: "from-orange-500/60 to-red-500/60",
     accentColor: "text-orange-400",
     bgColor: "bg-orange-500/10"
   },
@@ -101,7 +101,7 @@ export const projects: Project[] = [
     hasGithub: false,
     hasDemo: false,
     featured: false,
-    gradient: "from-purple-500/20 to-pink-500/20",
+    gradient: "from-purple-500/60 to-pink-500/60",
     accentColor: "text-purple-400",
     bgColor: "bg-purple-500/10"
   },
@@ -121,7 +121,7 @@ export const projects: Project[] = [
     hasGithub: false,
     hasDemo: false,
     featured: false,
-    gradient: "from-cyan-500/20 to-blue-500/20",
+    gradient: "from-cyan-500/60 to-blue-500/60",
     accentColor: "text-cyan-400",
     bgColor: "bg-cyan-500/10"
   }
