@@ -19,7 +19,7 @@ export const skills: Skill[] = [
   {
     icon: Cloud,
     title: "Cloud Architecture",
-    description: "Experienced in AWS cloud services, HPC clusters, and hybrid architectures with 40% cost optimization achievements.",
+    description: "Experienced in AWS cloud services, HPC clusters, and hybrid architectures.",
     color: "from-purple-500 to-pink-500",
     iconColor: "text-purple-400"
   },
@@ -33,7 +33,7 @@ export const skills: Skill[] = [
   {
     icon: Database,
     title: "Data Platform Design",
-    description: "Co-authored patents and designed scalable data management platforms, integrating LDAP authentication and centralized databases.",
+    description: "Designed scalable data management platforms, integrating LDAP authentication and centralized databases.",
     color: "from-orange-500 to-cyan-500",
     iconColor: "text-orange-400"
   },
@@ -44,9 +44,18 @@ export const aboutContent = {
   subtitle: "I'm a software engineer specializing in bioinformatics workflows, cloud architecture, and full-stack development. I build scalable solutions that accelerate scientific research and optimize computational resources.",
   journeyTitle: "My Journey",
   journeyParagraphs: [
-    "At BioNTech, a large company with great resources and a startup mindset, I engineer scalable cloud-based bioinformatics workflows using Nextflow, cutting analysis runtime from overnight to hours. I collaborate with cross-site teams to design centralized internal databases that facilitate data accessibility and support organizational goals.",
-    "Working closely with scientists and researchers, I've become adaptable and attentive to their needs, helping bridge the gap between technology and science. I support CI/CD pipeline best practices, version control, and documentation standards to ensure reproducible workflows and seamless team collaboration.",
-    "My time at BlueSphere Bio gave me the opportunity to develop a Nextflow-driven workflow management platform using Next.js and FastAPI, co-author patent filings, and achieve a 40% reduction in AWS costs through optimization. I transformed hybrid server architectures by integrating Slurm HPC clusters with LDAP authentication, significantly boosting research throughput."
+    {
+      text: "At BioNTech, a large company with great resources and a startup mindset, I focused on building scalable cloud-based pipelines and managing internal databases to help scientists accelerate their research. I enjoyed collaborating with cross-site teams and making complex processes more efficient and accessible.",
+      highlights: [{ word: "BioNTech", className: "text-cyan-400 font-semibold" }]
+    },
+    {
+      text: "Working closely with scientists and researchers, I've become adaptable and attentive to their needs, helping bridge the gap between technology and science. I support CI/CD pipeline best practices, version control, and documentation standards to ensure reproducible workflows and seamless team collaboration.",
+      highlights: []
+    },
+    {
+      text: "My time at BlueSphere Bio gave me the opportunity to thrive in a dynamic, fast-paced environment and tackle new technical challenges. I'm enthusiastic about technology, always eager to learn, and approach every project with curiosity and humility.",
+      highlights: [{ word: "BlueSphere Bio", className: "text-purple-400 font-semibold" }]
+    }
   ],
   personalInfo: {
     currentFocus: {

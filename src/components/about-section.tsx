@@ -47,7 +47,7 @@ export function AboutSection() {
         >
           <div className="flex items-center justify-center gap-3 mb-6">
             <Star className="w-6 h-6 text-cyan-400" />
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent pb-1">
               {aboutContent.title}
             </h2>
             <Sparkles className="w-6 h-6 text-purple-400" />
@@ -69,21 +69,43 @@ export function AboutSection() {
                 {aboutContent.journeyTitle}
               </h3>
               <div className="space-y-6 text-muted-foreground leading-relaxed">
-                {aboutContent.journeyParagraphs.map((paragraph, index) => (
-                  <p key={index}>
-                    {index === 0 && (
-                      <>
-                        At <span className="text-cyan-400 font-semibold">BioNTech</span>, a large company with great resources and a startup mindset, I focused on building scalable cloud-based pipelines and managing internal databases to help scientists accelerate their research. I enjoyed collaborating with cross-site teams and making complex processes more efficient and accessible.
-                      </>
-                    )}
-                    {index === 1 && paragraph}
-                    {index === 2 && (
-                      <>
-                        My time at <span className="text-purple-400 font-semibold">BlueSphere Bio</span> gave me the opportunity to thrive in a dynamic, fast-paced environment and tackle new technical challenges. I'm enthusiastic about technology, always eager to learn, and approach every project with curiosity and humility.
-                      </>
-                    )}
-                  </p>
-                ))}
+                {aboutContent.journeyParagraphs.map((paragraph, index) => {
+                  if (typeof paragraph === 'string') {
+                    return <p key={index}>{paragraph}</p>;
+                  }
+                  
+                  let text = paragraph.text;
+                  const parts = [];
+                  let lastIndex = 0;
+                  
+                  paragraph.highlights.forEach((highlight) => {
+                    const wordIndex = text.indexOf(highlight.word, lastIndex);
+                    if (wordIndex !== -1) {
+                      // Add text before the highlight
+                      if (wordIndex > lastIndex) {
+                        parts.push(text.substring(lastIndex, wordIndex));
+                      }
+                      // Add the highlighted word
+                      parts.push(
+                        <span key={`${index}-${wordIndex}`} className={highlight.className}>
+                          {highlight.word}
+                        </span>
+                      );
+                      lastIndex = wordIndex + highlight.word.length;
+                    }
+                  });
+                  
+                  // Add remaining text
+                  if (lastIndex < text.length) {
+                    parts.push(text.substring(lastIndex));
+                  }
+                  
+                  return (
+                    <p key={index}>
+                      {parts}
+                    </p>
+                  );
+                })}
               </div>
             </div>
           </motion.div>
