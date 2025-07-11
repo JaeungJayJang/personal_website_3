@@ -98,7 +98,7 @@ export function ContactSection() {
         >
           <div className="flex items-center justify-center gap-3 mb-6">
             <MessageCircle className="w-6 h-6 text-cyan-400" />
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent pb-1">
               Get In Touch
             </h2>
             <Star className="w-6 h-6 text-purple-400" />

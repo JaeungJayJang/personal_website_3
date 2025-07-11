@@ -47,7 +47,7 @@ export function ExperienceSection() {
         >
           <div className="flex items-center justify-center gap-3 mb-6">
             <Briefcase className="w-6 h-6 text-purple-400" />
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent pb-1">
               Experience
             </h2>
             <Star className="w-6 h-6 text-cyan-400" />
