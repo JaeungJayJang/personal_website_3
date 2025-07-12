@@ -21,6 +21,33 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    title: "jang.jaeung.com V3",
+    description: "Modern professional portfolio built with Next.js 15, TypeScript, and Tailwind CSS 4.0. Features smooth Framer Motion animations, dynamic theme switching, server-side contact API, and AI-enhanced development workflow with Claude Sonnet 4.",
+    shortDesc: "Professional portfolio showcasing modern web development with AI-enhanced workflow",
+    technologies: ["Next.js 15", "TypeScript", "Tailwind CSS 4.0", "Framer Motion", "Vercel Analytics", "Nodemailer"],
+    features: [
+      "Next.js App Router with Server Components",
+      "Dynamic dark/light theme with system detection",
+      "Smooth animations with Framer Motion",
+      "Server-side contact form with email API",
+      "SEO optimized with Open Graph meta tags",
+      "AI-enhanced development with Claude Sonnet 4",
+      "Vercel deployment with custom domain",
+      "TypeScript for full type safety"
+    ],
+    icon: Code,
+    category: "Web Development",
+    period: "Jul 2025",
+    hasGithub: true,
+    hasDemo: true,
+    featured: true,
+    gradient: "from-violet-500/60 to-indigo-500/60",
+    accentColor: "text-violet-400",
+    bgColor: "bg-violet-500/10",
+    githubUrl: "https://github.com/JaeungJayJang/personal_website_3",
+    demoUrl: "https://jang.jaeung.com"
+  },
+  {
     title: "Developer's Blog",
     description: "A personal blog to document technical projects using Next.js (frontend) and FastAPI (backend). Integrated Blocknote.js for rich text editing, Auth.js for authentication, and MongoDB with Beanie ODM.",
     shortDesc: "Full-stack blog platform with rich text editing and cloud deployment",
