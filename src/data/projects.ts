@@ -57,7 +57,7 @@ export const projects: Project[] = [
     category: "Web Development",
     period: "Jul 2024 - Present",
     hasGithub: true,
-    hasDemo: false,
+    hasDemo: true,
     featured: false,
     gradient: "from-emerald-500/60 to-teal-500/60",
     accentColor: "text-emerald-400",
