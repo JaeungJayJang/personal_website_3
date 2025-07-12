@@ -1,24 +1,34 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Github, ExternalLink, Code, Filter, Sparkles, Star } from "lucide-react";
+import { Github, ExternalLink, Code, Filter, Sparkles, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { projects, projectCategories } from "@/data/projects";
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
+  const [currentFeaturedIndex, setCurrentFeaturedIndex] = useState(0);
 
   const filteredProjects = activeFilter === "All" 
     ? projects 
     : projects.filter(project => project.category === activeFilter);
 
-  const featuredProject = projects.find(p => p.featured);
+  const featuredProjects = projects.filter(p => p.featured);
+  const currentFeaturedProject = featuredProjects[currentFeaturedIndex];
   
   // When "All" is selected, show regular projects separately from featured
   // When a specific category is selected, include featured project in regular projects if it matches
   const regularProjects = activeFilter === "All"
     ? filteredProjects.filter(p => !p.featured)
     : filteredProjects; // This includes featured project if it matches the category
+
+  const nextFeatured = () => {
+    setCurrentFeaturedIndex((prev) => (prev + 1) % featuredProjects.length);
+  };
+
+  const prevFeatured = () => {
+    setCurrentFeaturedIndex((prev) => (prev - 1 + featuredProjects.length) % featuredProjects.length);
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -108,7 +118,7 @@ export function ProjectsSection() {
         </motion.div>
 
         {/* Featured Project */}
-        {featuredProject && activeFilter === "All" && (
+        {currentFeaturedProject && activeFilter === "All" && (
           <motion.div
             className="mb-20"
             initial={{ opacity: 0, y: 30 }}
@@ -118,89 +128,140 @@ export function ProjectsSection() {
           >
             <div className="relative bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:border-primary/30">
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
-              <div className="relative p-8 md:p-12">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                  <div>
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="bg-gradient-to-r from-cyan-500 to-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg">
-                        <featuredProject.icon className="w-8 h-8 text-white" />
+              
+              {/* Navigation buttons */}
+              {featuredProjects.length > 1 && (
+                <>
+                  <button
+                    onClick={prevFeatured}
+                    className="absolute left-4 top-6 z-20 bg-background/95 backdrop-blur-sm border border-border/50 rounded-full p-2 hover:bg-accent transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  <button
+                    onClick={nextFeatured}
+                    className="absolute right-4 top-6 z-20 bg-background/95 backdrop-blur-sm border border-border/50 rounded-full p-2 hover:bg-accent transition-all duration-300 shadow-lg hover:shadow-xl"
+                  >
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </>
+              )}
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentFeaturedProject.title}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.2 }}
+                  className="relative p-8 md:p-12"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div>
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className="bg-gradient-to-r from-cyan-500 to-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg">
+                          <currentFeaturedProject.icon className="w-8 h-8 text-white" />
+                        </div>
+                        <div>
+                          <span className="px-4 py-2 bg-gradient-to-r from-yellow-400/80 via-orange-400/70 to-yellow-500/80 text-white border-2 border-yellow-400 shadow-md text-sm font-semibold rounded-full backdrop-blur-sm flex items-center gap-2 animate-pulse-slow">
+                            <Star className="w-4 h-4 text-white drop-shadow" />
+                            Featured Project
+                          </span>
+                          {currentFeaturedProject.period && (
+                            <p className="text-sm text-muted-foreground mt-2">{currentFeaturedProject.period}</p>
+                          )}
+                        </div>
                       </div>
-                      <div>
-                        <span className="px-4 py-2 bg-gradient-to-r from-yellow-400/80 via-orange-400/70 to-yellow-500/80 text-white border-2 border-yellow-400 shadow-md text-sm font-semibold rounded-full backdrop-blur-sm flex items-center gap-2 animate-pulse-slow">
-                          <Star className="w-4 h-4 text-white drop-shadow" />
-                          Featured Project
-                        </span>
-                        {featuredProject.period && (
-                          <p className="text-sm text-muted-foreground mt-2">{featuredProject.period}</p>
+                      
+                      <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                        {currentFeaturedProject.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
+                        {currentFeaturedProject.description}
+                      </p>
+
+                      <div className="flex flex-wrap gap-3 mb-8">
+                        {currentFeaturedProject.technologies.slice(0, 6).map((tech: string, i: number) => (
+                          <span
+                            key={i}
+                            className="px-4 py-2 bg-background/50 backdrop-blur-sm text-sm rounded-xl border border-border/50 hover:border-primary/30 transition-colors"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {currentFeaturedProject.technologies.length > 6 && (
+                          <span className="px-4 py-2 bg-muted text-sm rounded-xl">
+                            +{currentFeaturedProject.technologies.length - 6} more
+                          </span>
+                        )}
+                      </div>
+
+                      <div className="flex gap-4">
+                        {currentFeaturedProject.hasGithub && currentFeaturedProject.githubUrl && (
+                          <motion.a
+                            href={currentFeaturedProject.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-6 py-3 bg-background/80 backdrop-blur-sm border border-border/50 rounded-xl hover:bg-accent transition-all duration-300"
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <Github className="w-5 h-5" />
+                            Code
+                          </motion.a>
+                        )}
+                        {currentFeaturedProject.hasDemo && currentFeaturedProject.demoUrl && (
+                          <motion.a
+                            href={currentFeaturedProject.demoUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                            whileHover={{ scale: 1.05, y: -2 }}
+                            whileTap={{ scale: 0.95 }}
+                          >
+                            <ExternalLink className="w-5 h-5" />
+                            Live Demo
+                          </motion.a>
                         )}
                       </div>
                     </div>
-                    
-                    <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                      {featuredProject.title}
-                    </h3>
-                    
-                    <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
-                      {featuredProject.description}
-                    </p>
 
-                    <div className="flex flex-wrap gap-3 mb-8">
-                      {featuredProject.technologies.slice(0, 6).map((tech, i) => (
-                        <span
-                          key={i}
-                          className="px-4 py-2 bg-background/50 backdrop-blur-sm text-sm rounded-xl border border-border/50 hover:border-primary/30 transition-colors"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {featuredProject.technologies.length > 6 && (
-                        <span className="px-4 py-2 bg-muted text-sm rounded-xl">
-                          +{featuredProject.technologies.length - 6} more
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="flex gap-4">
-                      {featuredProject.hasGithub && (
-                        <motion.button
-                          className="flex items-center gap-2 px-6 py-3 bg-background/80 backdrop-blur-sm border border-border/50 rounded-xl hover:bg-accent transition-all duration-300"
-                          whileHover={{ scale: 1.05, y: -2 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <Github className="w-5 h-5" />
-                          Code
-                        </motion.button>
-                      )}
-                      {featuredProject.hasDemo && (
-                        <motion.button
-                          className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
-                          whileHover={{ scale: 1.05, y: -2 }}
-                          whileTap={{ scale: 0.95 }}
-                        >
-                          <ExternalLink className="w-5 h-5" />
-                          Live Demo
-                        </motion.button>
-                      )}
+                    <div className="relative">
+                      <div className="bg-gradient-to-br from-background/80 to-muted/20 border border-border/50 rounded-2xl p-6 shadow-lg backdrop-blur-sm">
+                        <h4 className="text-lg font-semibold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                          Key Features
+                        </h4>
+                        <ul className="space-y-3">
+                          {currentFeaturedProject.features.map((feature: string, i: number) => (
+                            <li key={i} className="flex items-start gap-3">
+                              <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full mt-2 flex-shrink-0" />
+                              <span className="text-muted-foreground">{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </div>
+                </motion.div>
+              </AnimatePresence>
 
-                  <div className="relative">
-                    <div className="bg-gradient-to-br from-background/80 to-muted/20 border border-border/50 rounded-2xl p-6 shadow-lg backdrop-blur-sm">
-                      <h4 className="text-lg font-semibold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-                        Key Features
-                      </h4>
-                      <ul className="space-y-3">
-                        {featuredProject.features.map((feature, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full mt-2 flex-shrink-0" />
-                            <span className="text-muted-foreground">{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
+              {/* Pagination dots */}
+              {featuredProjects.length > 1 && (
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                  {featuredProjects.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => setCurrentFeaturedIndex(index)}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentFeaturedIndex
+                          ? 'bg-gradient-to-r from-cyan-500 to-purple-500 scale-125'
+                          : 'bg-gray-400 hover:bg-gray-300 opacity-60 hover:opacity-80'
+                      }`}
+                    />
+                  ))}
                 </div>
-              </div>
+              )}
             </div>
           </motion.div>
         )}
