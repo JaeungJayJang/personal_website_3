@@ -63,7 +63,7 @@ export const projects: Project[] = [
     accentColor: "text-emerald-400",
     bgColor: "bg-emerald-500/10",
     githubUrl: "https://github.com/JaeungJayJang/personal_website",
-    demoUrl: "https://jang.jaeung.com"
+    demoUrl: "https://jang2.jaeung.com"
   },
   {
     title: "Custom Keyboard",
