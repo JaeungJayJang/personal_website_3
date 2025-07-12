@@ -57,7 +57,7 @@ export const projects: Project[] = [
     category: "Portfolio",
     period: "Jul 2024 - Present",
     hasGithub: true,
-    hasDemo: true,
+    hasDemo: false,
     featured: false,
     gradient: "from-emerald-500/60 to-teal-500/60",
     accentColor: "text-emerald-400",
@@ -68,7 +68,7 @@ export const projects: Project[] = [
   {
     title: "Custom Keyboard",
     description: "Custom firmware using QMK for my first split keyboard! Hardware project featuring custom key mapping and personalized configuration.",
-    shortDesc: "QMK firmware for custom split keyboard design",
+    shortDesc: "Sofle split keyboard with QMK firmware",
     technologies: ["Pro Micro", "QMK", "C"],
     features: [
       "Custom split keyboard design",
@@ -88,7 +88,7 @@ export const projects: Project[] = [
   {
     title: "ESP32 Tyranitar",
     description: "3D pokemon, Tyranitar, powered with ESP32 and micropython. Interactive IoT project combining 3D printing with microcontroller programming.",
-    shortDesc: "3D printed Pokemon with ESP32 microcontroller",
+    shortDesc: "3D printed Pokemon with ESP32 microcontroller for interactive features",
     technologies: ["ESP32", "MicroPython", "3D Printing"],
     features: [
       "3D printed Pokemon model",
@@ -108,7 +108,7 @@ export const projects: Project[] = [
   {
     title: "Catch a Cat",
     description: "Mobile game to catch as many coins as possible without getting caught by the dog, built with Flutter and Flame engine for cross-platform gameplay.",
-    shortDesc: "Cross-platform mobile game built with Flutter",
+    shortDesc: "Cross-platform mobile game built with Flutter and Flame engine",
     technologies: ["Flutter", "Dart", "Flame Engine"],
     features: [
       "Cross-platform mobile game",
