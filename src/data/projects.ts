@@ -54,7 +54,7 @@ export const projects: Project[] = [
       "Optimized for performance and design"
     ],
     icon: Palette,
-    category: "Portfolio",
+    category: "Web Development",
     period: "Jul 2024 - Present",
     hasGithub: true,
     hasDemo: false,
@@ -149,4 +149,4 @@ export const projects: Project[] = [
   }
 ];
 
-export const projectCategories = ["All", "Web Development", "Portfolio", "Hardware", "IoT", "Mobile Game"];
+export const projectCategories = ["All", "Web Development", "Hardware", "IoT", "Mobile Game"];
