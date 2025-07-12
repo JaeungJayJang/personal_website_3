@@ -1,4 +1,4 @@
-import { Mail, Linkedin, Github, MapPin, LucideIcon } from "lucide-react";
+import { Mail, Linkedin, Github, LucideIcon } from "lucide-react";
 
 export interface ContactInfo {
   icon: LucideIcon;
@@ -40,15 +40,7 @@ export const contactInfo: ContactInfo[] = [
     href: "https://github.com/JaeungJayJang",
     gradient: "from-purple-500 to-pink-500",
     accentColor: "text-purple-400"
-  },
-  {
-    icon: MapPin,
-    label: "Location",
-    value: "United States",
-    href: null,
-    gradient: "from-green-500 to-emerald-500",
-    accentColor: "text-green-400"
-  },
+  }
 ];
 
 export const socialLinks: SocialLink[] = [
