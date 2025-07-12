@@ -13,7 +13,12 @@ export function ProjectsSection() {
     : projects.filter(project => project.category === activeFilter);
 
   const featuredProject = projects.find(p => p.featured);
-  const regularProjects = filteredProjects.filter(p => !p.featured);
+  
+  // When "All" is selected, show regular projects separately from featured
+  // When a specific category is selected, include featured project in regular projects if it matches
+  const regularProjects = activeFilter === "All"
+    ? filteredProjects.filter(p => !p.featured)
+    : filteredProjects; // This includes featured project if it matches the category
 
   const containerVariants = {
     hidden: { opacity: 0 },
