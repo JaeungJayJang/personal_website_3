@@ -123,7 +123,7 @@ const floatingElements = [
     },
   };
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-muted/10 to-background">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-background via-muted/10 to-background pt-20 sm:pt-24 lg:pt-16">
       
       {/* Animated Background Elements */}
       <div className="absolute inset-0 -z-10">
