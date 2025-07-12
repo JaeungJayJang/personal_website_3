@@ -33,7 +33,7 @@ export const projects: Project[] = [
     ],
     icon: Globe,
     category: "Web Development",
-    period: "Jul 2024 – Present",
+    period: "Jul 2024 - Present",
     hasGithub: false, // disable until they are back online again
     hasDemo: false,  // disable until they are back online again
     featured: true,
@@ -55,7 +55,7 @@ export const projects: Project[] = [
     ],
     icon: Palette,
     category: "Portfolio",
-    period: "Jul 2024 – Present",
+    period: "Jul 2024 - Present",
     hasGithub: true,
     hasDemo: true,
     featured: false,
