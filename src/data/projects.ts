@@ -43,7 +43,7 @@ export const projects: Project[] = [
     demoUrl: "https://blog.jaeung.dev" // Add your actual demo URL
   },
   {
-    title: "jang.jaeung.com",
+    title: "jang.jaeung.com V2",
     description: "Portfolio site to showcase design aesthetic and technical skills using Next.js, Tailwind CSS, and Spline. Features a clean and responsive layout, deployed on GitHub Pages via GitHub Actions.",
     shortDesc: "Portfolio website showcasing 3D animations designed with Spline and built with Next.js",
     technologies: ["Next.js", "Tailwind CSS", "Spline"],
