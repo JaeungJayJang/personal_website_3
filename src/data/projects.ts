@@ -106,6 +106,28 @@ export const projects: Project[] = [
     bgColor: "bg-purple-500/10"
   },
   {
+    title: "JK Guest House",
+    description: "Professional website for a Korean guesthouse business featuring property showcase, room gallery, and booking information. Built as a client project with responsive design and optimized performance.",
+    shortDesc: "Business website for guesthouse accommodation with Korean content and responsive design",
+    technologies: ["Next.js", "Tailwind CSS", "Vercel"],
+    features: [
+      "Responsive design with Korean content",
+      "Property gallery and room showcase",
+      "Contact and booking information",
+      "Optimized for business needs"
+    ],
+    icon: Globe,
+    category: "Web Development",
+    period: "2024",
+    hasGithub: false,
+    hasDemo: true,
+    featured: false,
+    gradient: "from-green-500/60 to-emerald-500/60",
+    accentColor: "text-green-400",
+    bgColor: "bg-green-500/10",
+    demoUrl: "https://www.jkguesthouse.com"
+  },
+  {
     title: "Catch a Cat",
     description: "Mobile game to catch as many coins as possible without getting caught by the dog, built with Flutter and Flame engine for cross-platform gameplay.",
     shortDesc: "Cross-platform mobile game built with Flutter and Flame engine",
