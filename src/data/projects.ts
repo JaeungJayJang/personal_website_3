@@ -70,6 +70,32 @@ export const projects: Project[] = [
     demoUrl: "https://blog.jaeung.dev" // Add your actual demo URL
   },
   {
+    title: "IoT Time Tracker Cube",
+    description: "Enhanced implementation of Adafruit's Time Tracking Cube tutorial using ESP32 and cloud connectivity. Features 6-sided task management with real-time data logging to Adafruit IO, intelligent tap-to-break system, and visual feedback through NeoPixel LEDs.",
+    shortDesc: "IoT productivity cube with accelerometer-based task switching and cloud data logging",
+    technologies: ["ESP32", "C++", "Arduino IDE", "Adafruit IO"],
+    features: [
+      "6-sided task management with orientation detection",
+      "Real-time cloud sync to Adafruit IO",
+      "Tap-to-break system with visual indicators", 
+      "Enhanced state management with debouncing",
+      "Custom RGB feedback for each task type",
+      "Detailed activity logging (Start/Stop/Break/Resume)",
+      "3D printed enclosure with wireless connectivity",
+      "ESP32 upgrade for improved performance"
+    ],
+    icon: Cpu,
+    category: "IoT",
+    period: "2024",
+    hasGithub: true,
+    hasDemo: false,
+    featured: false,
+    gradient: "from-teal-500/60 to-cyan-500/60",
+    accentColor: "text-teal-400",
+    bgColor: "bg-teal-500/10",
+    githubUrl: "https://github.com/JaeungJayJang/IO_Time_Tracker_Cube"
+  },
+  {
     title: "jang.jaeung.com V2",
     description: "Portfolio site to showcase design aesthetic and technical skills using Next.js, Tailwind CSS, and Spline. Features a clean and responsive layout, deployed on GitHub Pages via GitHub Actions.",
     shortDesc: "Portfolio website showcasing 3D animations designed with Spline and built with Next.js",
