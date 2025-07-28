@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { StructuredData } from "@/components/structured-data";
 import { siteConfig } from "@/data/site-config";
 import { Analytics } from "@vercel/analytics/next"
 
@@ -21,6 +22,21 @@ export const metadata: Metadata = {
   keywords: ["Jaeung Jang", "Software Engineer", "Full Stack Developer", "Machine Learning", "BioNTech", "BlueSphere Bio"],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
+  metadataBase: new URL(siteConfig.website),
+  alternates: {
+    canonical: siteConfig.website,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -54,6 +70,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="manifest" href="/manifest.json" />
+        <StructuredData />
       </head>
       <body
         className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}
