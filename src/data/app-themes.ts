@@ -338,7 +338,7 @@ export const themes = {
 } as const;
 
 // Current active theme - change this to switch themes globally
-export const currentTheme = themes.monochrome;
+export const currentTheme = themes.ocean;
 
 // Theme selector type
 export type ThemeNames = keyof typeof themes;
