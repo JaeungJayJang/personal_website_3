@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Github, Linkedin, Mail, Terminal, Code, Coffee, Zap, Cpu, Database, Globe } from "lucide-react";
 import { useEffect, useState } from "react";
+import { themeGradients, themeText, themeInteractive, themeEffects } from "@/data/app-themes";
 
 const commands = [
   "whoami",
@@ -30,27 +31,27 @@ export function HeroSection() {
       name: "GitHub",
       href: "https://github.com/JaeungJayJang",
       icon: Github,
-      color: "hover:text-purple-400",
+      color: themeInteractive.hover.secondary,
     },
     {
       name: "LinkedIn",
       href: "https://linkedin.com/in/jaeung-jang",
       icon: Linkedin,
-      color: "hover:text-blue-400",
+      color: themeInteractive.hover.primary,
     },
     {
       name: "Email",
       href: "mailto:wodndckato@gmail.com",
       icon: Mail,
-      color: "hover:text-green-400",
+      color: themeInteractive.hover.accent,
     },
   ];
 
   const techStack = [
-    { icon: Code, name: "Full Stack", color: "text-blue-400" },
-    { icon: Database, name: "Databases", color: "text-green-400" },
-    { icon: Globe, name: "Web Dev", color: "text-purple-400" },
-    { icon: Cpu, name: "IoT/Hardware", color: "text-orange-400" },
+    { icon: Code, name: "Full Stack", color: themeText.primary },
+    { icon: Database, name: "Databases", color: themeText.success },
+    { icon: Globe, name: "Web Dev", color: themeText.secondary },
+    { icon: Cpu, name: "IoT/Hardware", color: themeText.warning },
   ];
 
 const floatingElements = [
@@ -141,7 +142,7 @@ const floatingElements = [
 
         {/* Floating geometric shapes */}
         <motion.div
-          className="absolute top-20 left-20 w-32 h-32 border-2 border-cyan-500/30 rounded-lg"
+          className={`absolute top-20 left-20 w-32 h-32 border-2 border-${themeText.primary.replace('text-', '')}/30 rounded-lg`}
           animate={{ 
             rotateX: [0, 360],
             rotateY: [0, 180],
@@ -156,7 +157,7 @@ const floatingElements = [
         />
         
         <motion.div
-          className="absolute top-40 right-32 w-20 h-20 bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-full"
+          className={`absolute top-40 right-32 w-20 h-20 ${themeEffects.glow[1]} rounded-full`}
           animate={{ 
             y: [-20, 20, -20],
             x: [-10, 10, -10],
@@ -170,7 +171,7 @@ const floatingElements = [
         />
 
         <motion.div
-          className="absolute bottom-32 left-1/4 w-16 h-16 border-2 border-orange-500/40 rotate-45"
+          className={`absolute bottom-32 left-1/4 w-16 h-16 border-2 border-${themeText.warning.replace('text-', '')}/40 rotate-45`}
           animate={{ 
             rotate: [45, 405, 45],
             opacity: [0.4, 0.8, 0.4]
@@ -186,7 +187,7 @@ const floatingElements = [
         {floatingElements.map((element, index) => (
           <motion.div
             key={index}
-            className="absolute text-xs font-bold font-mono text-green-400/40 pointer-events-none select-none"
+            className={`absolute text-xs font-bold font-mono ${themeText.success}/40 pointer-events-none select-none`}
             style={{ left: element.x, top: element.y }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ 
@@ -217,27 +218,27 @@ const floatingElements = [
           <div className="lg:col-span-7 space-y-8">
             <motion.div variants={itemVariants}>
               <div className="flex items-center gap-3 mb-4">
-                <Terminal className="w-8 h-8 text-green-400" />
-                <span className="text-green-400 font-mono text-sm">dev@jaeung-terminal:~$</span>
+                <Terminal className={`w-8 h-8 ${themeText.success}`} />
+                <span className={`${themeText.success} font-mono text-sm`}>dev@jaeung-terminal:~$</span>
               </div>
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
                 <span className="text-foreground">I'm a</span>
                 <br />
-                <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                <span className={`${themeGradients.rainbow} bg-clip-text text-transparent`}>
                   Software Engineer
                 </span>
                 <br />
                 <span className="text-foreground">& Problem</span>
-                <span className="bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent"> Solver</span>
+                <span className={`${themeGradients.cool} bg-clip-text text-transparent`}> Solver</span>
               </h1>
             </motion.div>
 
             <motion.div variants={itemVariants}>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl font-mono">
-                <span className="text-green-400">{">"}</span> Building digital experiences with passion for{" "}
-                <span className="text-cyan-400 font-semibold">clean code</span>,{" "}
-                <span className="text-purple-400 font-semibold">innovative solutions</span>, and{" "}
-                <span className="text-pink-400 font-semibold">coffee-driven development</span> ☕
+                <span className={themeText.success}>{">"}</span> Building digital experiences with passion for{" "}
+                <span className={`${themeText.primary} font-semibold`}>clean code</span>,{" "}
+                <span className={`${themeText.secondary} font-semibold`}>innovative solutions</span>, and{" "}
+                <span className={`${themeText.accent} font-semibold`}>coffee-driven development</span> ☕
               </p>
             </motion.div>
 
@@ -269,7 +270,7 @@ const floatingElements = [
               <div className="flex flex-wrap gap-4">
                 <motion.button
                   onClick={() => document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" })}
-                  className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  className={`${themeGradients.primary} text-white px-8 py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transition-all duration-300`}
                   whileHover={{ 
                     scale: 1.05, 
                     boxShadow: "0 20px 40px rgba(6, 182, 212, 0.4)",
@@ -286,7 +287,7 @@ const floatingElements = [
                 
                 <motion.button
                   onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-                  className="bg-background/80 backdrop-blur-sm border-2 border-purple-500/50 text-foreground px-8 py-4 rounded-xl font-semibold text-lg hover:bg-purple-500/10 transition-all duration-300"
+                  className={`bg-background/80 backdrop-blur-sm border-2 border-${themeText.secondary.replace('text-', '')}/50 text-foreground px-8 py-4 rounded-xl font-semibold text-lg hover:bg-${themeText.secondary.replace('text-', '')}/10 transition-all duration-300`}
                   whileHover={{ 
                     scale: 1.05,
                     borderColor: "rgba(168, 85, 247, 0.8)",
@@ -348,31 +349,31 @@ const floatingElements = [
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className="flex gap-2">
-                        <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
-                        <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                        <div className={`w-3 h-3 ${themeText.error} rounded-full`}></div>
+                        <div className={`w-3 h-3 ${themeText.warning} rounded-full`}></div>
+                        <div className={`w-3 h-3 ${themeText.success} rounded-full`}></div>
                       </div>
                       <span className="text-gray-300 text-sm font-mono truncate">jaeung@dev-machine</span>
                     </div>
-                    <Terminal className="w-5 h-5 text-green-400 flex-shrink-0" />
+                    <Terminal className={`w-5 h-5 ${themeText.success} flex-shrink-0`} />
                   </div>
                 </div>
 
                 {/* Terminal Content */}
                 <div className="p-6 h-[300px] font-mono text-sm overflow-y-auto overflow-x-hidden">
                   <div className="space-y-4">
-                    <div className="text-green-400">
+                    <div className={themeText.success}>
                       Welcome to Jaeung's Dev Environment v2.0.1
                     </div>
                     <div className="text-gray-300">
                       Last login: {new Date().toLocaleDateString()} from localhost
                     </div>
                     <div className="border-t border-gray-700/50 pt-4">
-                      <div className="text-cyan-400 whitespace-pre-wrap break-words leading-relaxed min-h-[60px]">
+                      <div className={`${themeText.primary} whitespace-pre-wrap break-words leading-relaxed min-h-[60px]`}>
                         {displayedText}
                         {isTyping && (
                           <motion.span
-                            className="inline-block w-2 h-5 bg-green-400 ml-1 align-text-bottom"
+                            className={`inline-block w-2 h-5 ${themeText.success} ml-1 align-text-bottom`}
                             animate={{ opacity: [1, 0, 1] }}
                             transition={{ duration: 1, repeat: Infinity }}
                           />
@@ -384,7 +385,7 @@ const floatingElements = [
                     <div className="pt-4 space-y-2 mt-auto">
                       <div className="flex items-center gap-3 text-xs">
                         <div className="flex items-center gap-2">
-                          <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse flex-shrink-0"></div>
+                          <div className={`w-2 h-2 ${themeText.success} rounded-full animate-pulse flex-shrink-0`}></div>
                           <span className="text-gray-400 truncate">Status: Currently coding</span>
                         </div>
                       </div>
@@ -396,7 +397,7 @@ const floatingElements = [
                       </div>
                       <div className="flex items-center gap-3 text-xs">
                         <div className="flex items-center gap-2">
-                          <Cpu className="w-3 h-3 text-blue-500 flex-shrink-0" />
+                          <Cpu className={`w-3 h-3 ${themeText.primary} flex-shrink-0`} />
                           <span className="text-gray-400 truncate">Mode: Full-stack wizard</span>
                         </div>
                       </div>
@@ -407,7 +408,7 @@ const floatingElements = [
 
               {/* Floating Elements around terminal */}
               <motion.div
-                className="absolute -top-4 -right-4 bg-gradient-to-r from-cyan-500 to-purple-500 w-8 h-8 rounded-full"
+                className={`absolute -top-4 -right-4 ${themeGradients.primary} w-8 h-8 rounded-full`}
                 animate={{ 
                   rotate: 360,
                   scale: [1, 1.2, 1]
@@ -420,7 +421,7 @@ const floatingElements = [
               />
               
               <motion.div
-                className="absolute -bottom-4 -left-4 bg-gradient-to-r from-pink-500 to-orange-500 w-6 h-6 rounded-lg"
+                className={`absolute -bottom-4 -left-4 ${themeGradients.warm} w-6 h-6 rounded-lg`}
                 animate={{ 
                   rotateZ: [0, 180, 360],
                   y: [-5, 5, -5]

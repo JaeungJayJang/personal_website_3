@@ -1,4 +1,5 @@
 import React from "react";
+import { themeGradients } from "@/data/app-themes";
 
 interface LogoProps {
   size?: "sm" | "md" | "lg";
@@ -23,11 +24,11 @@ export function Logo({ size = "md", className = "", showFullName = false }: Logo
     <div className={`flex items-center ${containerClasses[size]} ${className}`}>
       {/* Text-based logo */}
       <div className="relative">
-        <span className={`font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent ${sizeClasses[size]}`}>
+        <span className={`font-bold ${themeGradients.rainbow} bg-clip-text text-transparent ${sizeClasses[size]}`}>
           {showFullName ? "Jaeung Jang" : "JJ"}
         </span>
         {/* Subtle accent dot */}
-        <div className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full opacity-60" />
+        <div className={`absolute -top-1 -right-1 w-2 h-2 ${themeGradients.secondary} rounded-full opacity-60`} />
       </div>
     </div>
   );

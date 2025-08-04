@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Calendar, MapPin, ExternalLink, ArrowRight, Briefcase, Star } from "lucide-react";
 import { experiences } from "@/data/experiences";
+import { themeGradients, themeText, themeEffects } from "@/data/app-themes";
 
 export function ExperienceSection() {
 
@@ -30,11 +31,11 @@ export function ExperienceSection() {
   };
 
   return (
-    <section id="experience" className="relative py-24 bg-gradient-to-br from-background via-muted/5 to-background overflow-hidden">
+    <section id="experience" className={`relative py-24 bg-gradient-to-br ${themeEffects.ambient[1]} overflow-hidden`}>
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 right-20 w-32 h-32 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 left-20 w-40 h-40 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className={`absolute top-20 right-20 w-32 h-32 ${themeEffects.glow[1]} rounded-full blur-3xl animate-pulse`} />
+        <div className={`absolute bottom-20 left-20 w-40 h-40 ${themeEffects.glow[0]} rounded-full blur-3xl animate-pulse delay-1000`} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,11 +47,11 @@ export function ExperienceSection() {
           viewport={{ once: true }}
         >
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Briefcase className="w-6 h-6 text-purple-400" />
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent pb-1">
+            <Briefcase className={`w-6 h-6 ${themeText.secondary}`} />
+            <h2 className={`text-4xl sm:text-5xl font-bold ${themeGradients.accent} bg-clip-text text-transparent pb-1`}>
               Experience
             </h2>
-            <Star className="w-6 h-6 text-cyan-400" />
+            <Star className={`w-6 h-6 ${themeText.accent}`} />
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             My professional journey in software engineering, building solutions for biotech and healthcare.
@@ -75,7 +76,7 @@ export function ExperienceSection() {
               <div className="relative bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:border-primary/30">
                 {/* Status indicator */}
                 {exp.isActive && (
-                  <div className="absolute top-6 right-6 flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-600/80 to-emerald-600/80 text-white text-sm font-medium rounded-full border border-green-500/50 shadow-lg backdrop-blur-sm">
+                  <div className={`absolute top-6 right-6 flex items-center gap-2 px-4 py-2 ${themeGradients.warm} text-white text-sm font-medium rounded-full border border-green-500/50 shadow-lg backdrop-blur-sm`}>
                     <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
                     Current
                   </div>
@@ -84,19 +85,19 @@ export function ExperienceSection() {
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-6">
                   <div className="mb-4 sm:mb-0">
-                    <h3 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent mb-2">
+                    <h3 className={`text-2xl font-bold ${themeGradients.primary} bg-clip-text text-transparent mb-2`}>
                       {exp.position}
                     </h3>
-                    <h4 className="text-xl font-semibold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                    <h4 className={`text-xl font-semibold mb-4 ${themeGradients.secondary} bg-clip-text text-transparent`}>
                       {exp.company}
                     </h4>
                     <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-muted-foreground">
                       <div className="flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-cyan-400" />
+                        <Calendar className={`w-4 h-4 ${themeText.primary}`} />
                         <span className="font-medium">{exp.period}</span>
                       </div>
                       <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-purple-400" />
+                        <MapPin className={`w-4 h-4 ${themeText.accent}`} />
                         <span className="font-medium">{exp.location}</span>
                       </div>
                     </div>
@@ -109,8 +110,8 @@ export function ExperienceSection() {
                     {exp.description.map((item, i) => (
                       <li key={i} className="flex items-start gap-4 text-muted-foreground">
                         <div className="relative flex-shrink-0 mt-1">
-                          <ArrowRight className="w-4 h-4 text-cyan-400" />
-                          <div className="absolute -top-1 -right-1 w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse opacity-60" />
+                          <ArrowRight className={`w-4 h-4 ${themeText.primary}`} />
+                          <div className={`absolute -top-1 -right-1 w-2 h-2 ${themeGradients.accent} rounded-full animate-pulse opacity-60`} />
                         </div>
                         <span className="leading-relaxed">{item}</span>
                       </li>
@@ -148,7 +149,7 @@ export function ExperienceSection() {
           </p>
           <motion.button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3"
+            className={`${themeGradients.primary} text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >

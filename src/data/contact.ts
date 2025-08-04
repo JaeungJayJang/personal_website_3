@@ -1,4 +1,5 @@
 import { Mail, Linkedin, Github, LucideIcon } from "lucide-react";
+import { themeGradients, themeText } from "./app-themes";
 
 export interface ContactInfo {
   icon: LucideIcon;
@@ -22,24 +23,24 @@ export const contactInfo: ContactInfo[] = [
     label: "Email",
     value: "wodndckato@gmail.com",
     href: "mailto:wodndckato@gmail.com",
-    gradient: "from-red-500 to-orange-500",
-    accentColor: "text-red-400"
+    gradient: themeGradients.warm,
+    accentColor: themeText.error
   },
   {
     icon: Linkedin,
     label: "LinkedIn",
     value: "linkedin.com/in/jaeung-jang",
     href: "https://linkedin.com/in/jaeung-jang",
-    gradient: "from-blue-500 to-cyan-500",
-    accentColor: "text-blue-400"
+    gradient: themeGradients.cool,
+    accentColor: themeText.primary
   },
   {
     icon: Github,
     label: "GitHub",
     value: "github.com/JaeungJayJang",
     href: "https://github.com/JaeungJayJang",
-    gradient: "from-purple-500 to-pink-500",
-    accentColor: "text-purple-400"
+    gradient: themeGradients.secondary,
+    accentColor: themeText.secondary
   }
 ];
 
@@ -48,19 +49,19 @@ export const socialLinks: SocialLink[] = [
     name: "GitHub",
     href: "https://github.com/JaeungJayJang",
     icon: Github,
-    gradient: "from-purple-500 to-pink-500"
+    gradient: themeGradients.secondary
   },
   {
     name: "LinkedIn",
     href: "https://linkedin.com/in/jaeung-jang",
     icon: Linkedin,
-    gradient: "from-blue-500 to-cyan-500"
+    gradient: themeGradients.cool
   },
   {
     name: "Email",
     href: "mailto:wodndckato@gmail.com",
     icon: Mail,
-    gradient: "from-red-500 to-orange-500"
+    gradient: themeGradients.warm
   },
 ];
 

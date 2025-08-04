@@ -5,6 +5,7 @@ import { Heart, ArrowUp, Mail } from "lucide-react";
 import { socialLinks } from "@/data/contact";
 import { quickLinks, siteConfig } from "@/data/site-config";
 import { Logo } from "@/components/logo";
+import { themeGradients, themeText, themeEffects } from "@/data/app-themes";
 
 export function Footer() {
   const scrollToSection = (href: string) => {
@@ -19,11 +20,11 @@ export function Footer() {
   };
 
   return (
-    <footer className="relative bg-gradient-to-br from-background via-muted/10 to-background border-t border-border/50 overflow-hidden">
+    <footer className={`relative bg-gradient-to-br ${themeEffects.ambient[0]} border-t border-border/50 overflow-hidden`}>
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-20 w-32 h-32 bg-gradient-to-r from-cyan-500/5 to-purple-500/5 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-r from-purple-500/5 to-pink-500/5 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className={`absolute top-20 left-20 w-32 h-32 ${themeEffects.glow[0]} rounded-full blur-3xl animate-pulse`} />
+        <div className={`absolute bottom-20 right-20 w-40 h-40 ${themeEffects.glow[1]} rounded-full blur-3xl animate-pulse delay-1000`} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -78,7 +79,7 @@ export function Footer() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h4 className="font-semibold text-lg mb-6 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+              <h4 className={`font-semibold text-lg mb-6 ${themeGradients.primary} bg-clip-text text-transparent`}>
                 Quick Links
               </h4>
               <ul className="space-y-4">
@@ -90,7 +91,7 @@ export function Footer() {
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className={`w-2 h-2 ${themeGradients.primary} rounded-full opacity-0 group-hover:opacity-100 transition-opacity`} />
                       {link.name}
                     </motion.button>
                   </li>
@@ -107,7 +108,7 @@ export function Footer() {
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <h4 className="font-semibold text-lg mb-6 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h4 className={`font-semibold text-lg mb-6 ${themeGradients.secondary} bg-clip-text text-transparent`}>
                 Get In Touch
               </h4>
               <div className="space-y-4 text-muted-foreground">
@@ -116,12 +117,12 @@ export function Footer() {
                     href={`mailto:${siteConfig.email}`}
                     className="hover:text-primary transition-colors flex items-center gap-2 group"
                   >
-                    <Mail className="w-4 h-4 text-red-400 group-hover:scale-110 transition-transform" />
+                    <Mail className={`w-4 h-4 ${themeText.error} group-hover:scale-110 transition-transform`} />
                     {siteConfig.email}
                   </a>
                 </p>
                 <p className="flex items-center gap-2">
-                  <span className="inline-flex items-center justify-center w-4 h-4 bg-gradient-to-r from-green-400 to-emerald-400 rounded-full mr-2 align-middle">
+                  <span className={`inline-flex items-center justify-center w-4 h-4 ${themeGradients.warm} rounded-full mr-2 align-middle`}>
                     <span className="w-2 h-2 bg-white rounded-full block" />
                   </span>
                   {siteConfig.location}
@@ -154,14 +155,14 @@ export function Footer() {
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Infinity, repeatType: "reverse" }}
               >
-                <Heart className="w-4 h-4 text-red-500 fill-current" />
+                <Heart className={`w-4 h-4 ${themeText.error} fill-current`} />
               </motion.div>
               <span>using Next.js and Tailwind CSS</span>
             </div>
             
             <motion.button
               onClick={scrollToTop}
-              className="bg-gradient-to-r from-cyan-500 to-purple-500 p-2 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300"
+              className={`${themeGradients.primary} p-2 rounded-full text-white shadow-lg hover:shadow-xl transition-all duration-300`}
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.9 }}
             >

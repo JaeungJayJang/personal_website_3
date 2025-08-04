@@ -1,4 +1,5 @@
 import { Globe, Palette, Code, Cpu, Gamepad2, LucideIcon } from "lucide-react";
+import { themeGradients, themeText } from "./app-themes";
 
 export interface Project {
   title: string;
@@ -41,9 +42,9 @@ export const projects: Project[] = [
     hasGithub: true,
     hasDemo: true,
     featured: true,
-    gradient: "from-violet-500/60 to-indigo-500/60",
-    accentColor: "text-violet-400",
-    bgColor: "bg-violet-500/10",
+    gradient: themeGradients.primary.replace('bg-gradient-to-r', 'from-gradient-start to-gradient-end'),
+    accentColor: themeText.primary,
+    bgColor: themeText.primary.replace('text-', 'bg-') + '/10',
     githubUrl: "https://github.com/JaeungJayJang/personal_website_3",
     demoUrl: "https://jang.jaeung.com"
   },

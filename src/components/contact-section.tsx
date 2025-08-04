@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Mail, MessageCircle, CheckCircle, AlertCircle, Send, User, Star } from "lucide-react";
 import { useState } from "react";
 import { contactInfo } from "@/data/contact";
+import { themeGradients, themeText, themeEffects } from "@/data/app-themes";
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -83,9 +84,9 @@ export function ContactSection() {
     <section id="contact" className="relative py-24 bg-gradient-to-br from-background via-muted/10 to-background overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-40 left-20 w-32 h-32 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-40 right-20 w-40 h-40 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-r from-pink-500/5 to-orange-500/5 rounded-full blur-3xl animate-pulse delay-2000" />
+        <div className={`absolute top-40 left-20 w-32 h-32 ${themeEffects.blur[1]} rounded-full blur-3xl animate-pulse`} />
+        <div className={`absolute bottom-40 right-20 w-40 h-40 ${themeEffects.blur[0]} rounded-full blur-3xl animate-pulse delay-1000`} />
+        <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 ${themeEffects.ambient[2]} rounded-full blur-3xl animate-pulse delay-2000`} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,11 +98,11 @@ export function ContactSection() {
           viewport={{ once: true }}
         >
           <div className="flex items-center justify-center gap-3 mb-6">
-            <MessageCircle className="w-6 h-6 text-cyan-400" />
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent pb-1">
+            <MessageCircle className={`w-6 h-6 ${themeText.primary}`} />
+            <h2 className={`text-4xl sm:text-5xl font-bold ${themeGradients.rainbow} bg-clip-text text-transparent pb-1`}>
               Get In Touch
             </h2>
-            <Star className="w-6 h-6 text-purple-400" />
+            <Star className={`w-6 h-6 ${themeText.accent}`} />
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             I'm always interested in new opportunities and collaborations. 
@@ -117,7 +118,7 @@ export function ContactSection() {
             viewport={{ once: true }}
           >
             <div className="bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-              <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h3 className={`text-2xl font-bold mb-6 ${themeGradients.rainbow} bg-clip-text text-transparent`}>
                 Let's Connect
               </h3>
               <p className="text-muted-foreground mb-8 leading-relaxed text-lg">
@@ -147,7 +148,7 @@ export function ContactSection() {
                         <item.icon className="w-5 h-5 text-white" />
                       </div>
                       <div className="flex-1">
-                        <p className="font-semibold text-lg bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                        <p className={`font-semibold text-lg ${themeGradients.primary} bg-clip-text text-transparent`}>
                           {item.label}
                         </p>
                         {item.href ? (
@@ -177,7 +178,7 @@ export function ContactSection() {
             viewport={{ once: true }}
             className="bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg"
           >
-            <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent">
+            <h3 className={`text-2xl font-bold mb-6 ${themeGradients.warm} bg-clip-text text-transparent`}>
               Quick Contact
             </h3>
             
@@ -187,8 +188,8 @@ export function ContactSection() {
                 animate={{ opacity: 1, y: 0 }}
                 className={`mb-6 p-4 rounded-2xl flex items-center gap-3 backdrop-blur-md border ${
                   submitStatus === 'success' 
-                    ? 'bg-green-500/10 border-green-500/30 text-green-400' 
-                    : 'bg-red-500/10 border-red-500/30 text-red-400'
+                    ? `bg-green-500/10 border-green-500/30 ${themeText.success}` 
+                    : `bg-red-500/10 border-red-500/30 ${themeText.error}`
                 }`}
               >
                 {submitStatus === 'success' ? (
@@ -203,7 +204,7 @@ export function ContactSection() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium mb-2 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                  <label htmlFor="name" className={`block text-sm font-medium mb-2 ${themeGradients.primary} bg-clip-text text-transparent`}>
                     Name
                   </label>
                   <div className="relative">
@@ -222,7 +223,7 @@ export function ContactSection() {
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium mb-2 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <label htmlFor="email" className={`block text-sm font-medium mb-2 ${themeGradients.secondary} bg-clip-text text-transparent`}>
                     Email
                   </label>
                   <div className="relative">
@@ -242,7 +243,7 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium mb-2 bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
+                <label htmlFor="subject" className={`block text-sm font-medium mb-2 ${themeGradients.warm} bg-clip-text text-transparent`}>
                   Subject
                 </label>
                 <input
@@ -258,7 +259,7 @@ export function ContactSection() {
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium mb-2 bg-gradient-to-r from-orange-400 to-pink-400 bg-clip-text text-transparent">
+                <label htmlFor="message" className={`block text-sm font-medium mb-2 ${themeGradients.accent} bg-clip-text text-transparent`}>
                   Message
                 </label>
                 <textarea
@@ -276,7 +277,7 @@ export function ContactSection() {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3"
+                className={`w-full ${themeGradients.primary} text-white py-4 px-6 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-3`}
                 whileHover={{ scale: 1.02, y: -2 }}
                 whileTap={{ scale: 0.98 }}
               >

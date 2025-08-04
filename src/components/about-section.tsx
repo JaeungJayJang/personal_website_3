@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Sparkles, Star } from "lucide-react";
 import { skills, aboutContent } from "@/data/about";
+import { themeGradients, themeText, themeEffects } from "@/data/app-themes";
 
 export function AboutSection() {
 
@@ -32,9 +33,9 @@ export function AboutSection() {
     <section id="about" className="relative py-24 bg-gradient-to-br from-background via-muted/10 to-background overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-40 left-20 w-32 h-32 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-40 right-20 w-40 h-40 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 bg-gradient-to-r from-pink-500/5 to-orange-500/5 rounded-full blur-3xl animate-pulse delay-2000" />
+        <div className={`absolute top-40 left-20 w-32 h-32 ${themeEffects.blur[0]} rounded-full blur-3xl animate-pulse`} />
+        <div className={`absolute bottom-40 right-20 w-40 h-40 ${themeEffects.blur[1]} rounded-full blur-3xl animate-pulse delay-1000`} />
+        <div className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-60 h-60 ${themeEffects.ambient[2]} rounded-full blur-3xl animate-pulse delay-2000`} />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -46,11 +47,11 @@ export function AboutSection() {
           viewport={{ once: true }}
         >
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Star className="w-6 h-6 text-cyan-400" />
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent pb-1">
+            <Star className={`w-6 h-6 ${themeText.primary}`} />
+            <h2 className={`text-4xl sm:text-5xl font-bold ${themeGradients.rainbow} bg-clip-text text-transparent pb-1`}>
               {aboutContent.title}
             </h2>
-            <Sparkles className="w-6 h-6 text-purple-400" />
+            <Sparkles className={`w-6 h-6 ${themeText.accent}`} />
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             {aboutContent.subtitle}
@@ -65,7 +66,7 @@ export function AboutSection() {
             viewport={{ once: true }}
           >
             <div className="bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300">
-              <h3 className="text-2xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <h3 className={`text-2xl font-bold mb-6 ${themeGradients.rainbow} bg-clip-text text-transparent`}>
                 {aboutContent.journeyTitle}
               </h3>
               <div className="space-y-6 text-muted-foreground leading-relaxed">
@@ -120,7 +121,7 @@ export function AboutSection() {
             <div className="bg-gradient-to-br from-background/80 to-muted/20 border border-border/50 rounded-2xl p-8 shadow-lg backdrop-blur-sm">
               <div className="space-y-8">
                 <div className="relative">
-                  <h4 className="font-semibold text-lg mb-3 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                  <h4 className={`font-semibold text-lg mb-3 ${themeGradients.primary} bg-clip-text text-transparent`}>
                     {aboutContent.personalInfo.currentFocus.title}
                   </h4>
                   <p className="text-muted-foreground">
@@ -128,13 +129,13 @@ export function AboutSection() {
                   </p>
                 </div>
                 <div className="relative">
-                  <h4 className="font-semibold text-lg mb-3 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <h4 className={`font-semibold text-lg mb-3 ${themeGradients.secondary} bg-clip-text text-transparent`}>
                     {aboutContent.personalInfo.location.title}
                   </h4>
                   <p className="text-muted-foreground">{aboutContent.personalInfo.location.description}</p>
                 </div>
                 <div className="relative">
-                  <h4 className="font-semibold text-lg mb-3 bg-gradient-to-r from-pink-400 to-orange-400 bg-clip-text text-transparent">
+                  <h4 className={`font-semibold text-lg mb-3 ${themeGradients.warm} bg-clip-text text-transparent`}>
                     {aboutContent.personalInfo.interests.title}
                   </h4>
                   <p className="text-muted-foreground">
@@ -166,9 +167,9 @@ export function AboutSection() {
                   <div className={`bg-gradient-to-r ${skill.color} w-14 h-14 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300 group-hover:scale-110`}>
                     <skill.icon className={`w-7 h-7 text-white`} />
                   </div>
-                  <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse" />
+                  <div className={`absolute -top-1 -right-1 w-3 h-3 ${themeGradients.primary} rounded-full animate-pulse`} />
                 </div>
-                <h3 className="font-semibold text-lg mb-3 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                <h3 className={`font-semibold text-lg mb-3 ${themeGradients.primary} bg-clip-text text-transparent`}>
                   {skill.title}
                 </h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">

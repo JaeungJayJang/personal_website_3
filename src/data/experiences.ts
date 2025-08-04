@@ -1,3 +1,5 @@
+import { themeGradients, themeText } from "./app-themes";
+
 export interface Experience {
   company: string;
   position: string;
@@ -24,8 +26,8 @@ export const experiences: Experience[] = [
     ],
     technologies: ["Nextflow", "Python", "AWS", "Docker", "Git", "CI/CD"],
     isActive: true,
-    gradient: "from-purple-500 to-pink-500",
-    accentColor: "text-purple-400",
+    gradient: themeGradients.secondary,
+    accentColor: themeText.secondary,
     companyUrl: "https://biontech.de"
   },
   {
@@ -42,8 +44,8 @@ export const experiences: Experience[] = [
     ],
     technologies: ["Next.js", "FastAPI", "React", "Python", "Nextflow", "Slurm", "LDAP", "AWS", "HPC", "MongoDB"],
     isActive: false,
-    gradient: "from-blue-500 to-purple-500",
-    accentColor: "text-blue-400",
+    gradient: themeGradients.cool,
+    accentColor: themeText.primary,
     companyUrl: "https://bluespherebio.com"
   }
 ];

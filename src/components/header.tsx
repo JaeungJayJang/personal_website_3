@@ -6,6 +6,7 @@ import { Moon, Sun, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { navigation } from "@/data/site-config";
 import { Logo } from "@/components/logo";
+import { themeGradients, themeText } from "@/data/app-themes";
 
 export function Header() {
   const [mounted, setMounted] = useState(false);
@@ -51,7 +52,7 @@ export function Header() {
                 className="relative group text-muted-foreground hover:text-foreground transition-colors font-medium"
               >
                 {item.name}
-                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-400 group-hover:w-full transition-all duration-300" />
+                <div className={`absolute -bottom-1 left-0 w-0 h-0.5 ${themeGradients.primary} group-hover:w-full transition-all duration-300`} />
               </motion.button>
             ))}
             
@@ -63,9 +64,9 @@ export function Header() {
               className="p-2 rounded-lg bg-background/50 backdrop-blur-md border border-border/50 hover:bg-accent transition-all duration-300 hover:scale-105"
             >
               {theme === "dark" ? (
-                <Sun className="h-5 w-5 text-yellow-400" />
+                <Sun className={`h-5 w-5 ${themeText.warning}`} />
               ) : (
-                <Moon className="h-5 w-5 text-blue-400" />
+                <Moon className={`h-5 w-5 ${themeText.primary}`} />
               )}
             </motion.button>
           </div>
@@ -77,9 +78,9 @@ export function Header() {
               className="p-2 rounded-lg bg-background/50 backdrop-blur-md border border-border/50 hover:bg-accent transition-all duration-300"
             >
               {theme === "dark" ? (
-                <Sun className="h-5 w-5 text-yellow-400" />
+                <Sun className={`h-5 w-5 ${themeText.warning}`} />
               ) : (
-                <Moon className="h-5 w-5 text-blue-400" />
+                <Moon className={`h-5 w-5 ${themeText.primary}`} />
               )}
             </button>
             <button

@@ -1,4 +1,5 @@
 import { Code, LucideIcon, Database, Cloud, Workflow } from "lucide-react";
+import { themeGradients, themeText } from "./app-themes";
 
 export interface Skill {
   icon: LucideIcon;
@@ -13,29 +14,29 @@ export const skills: Skill[] = [
     icon: Workflow,
     title: "Bioinformatics Workflows",
     description: "Expert in Nextflow for building scalable, cloud-based bioinformatics pipelines that cut analysis runtime from overnight to hours.",
-    color: "from-blue-500 to-purple-500",
-    iconColor: "text-blue-400"
+    color: themeGradients.cool,
+    iconColor: themeText.primary
   },
   {
     icon: Cloud,
     title: "Cloud Architecture",
     description: "Experienced in AWS cloud services, HPC clusters, and hybrid architectures.",
-    color: "from-purple-500 to-pink-500",
-    iconColor: "text-purple-400"
+    color: themeGradients.secondary,
+    iconColor: themeText.secondary
   },
   {
     icon: Code,
     title: "Full-Stack Development",
     description: "Proficient in Next.js, FastAPI, React, and Python for building workflow management platforms and analysis tools.",
-    color: "from-pink-500 to-orange-500",
-    iconColor: "text-pink-400"
+    color: themeGradients.accent,
+    iconColor: themeText.accent
   },
   {
     icon: Database,
     title: "Data Platform Design",
     description: "Designed scalable data management platforms, integrating LDAP authentication and centralized databases.",
-    color: "from-orange-500 to-cyan-500",
-    iconColor: "text-orange-400"
+    color: themeGradients.warm,
+    iconColor: themeText.warning
   },
 ];
 
@@ -46,7 +47,7 @@ export const aboutContent = {
   journeyParagraphs: [
     {
       text: "At BioNTech, a large company with great resources and a startup mindset, I focused on building scalable cloud-based pipelines and managing internal databases to help scientists accelerate their research. I enjoyed collaborating with cross-site teams and making complex processes more efficient and accessible.",
-      highlights: [{ word: "BioNTech", className: "text-cyan-400 font-semibold" }]
+      highlights: [{ word: "BioNTech", className: `${themeText.primary} font-semibold` }]
     },
     {
       text: "Working closely with scientists and researchers, I've become adaptable and attentive to their needs, helping bridge the gap between technology and science. I support CI/CD pipeline best practices, version control, and documentation standards to ensure reproducible workflows and seamless team collaboration.",
@@ -54,7 +55,7 @@ export const aboutContent = {
     },
     {
       text: "My time at BlueSphere Bio gave me the opportunity to thrive in a dynamic, fast-paced environment and tackle new technical challenges. I'm enthusiastic about technology, always eager to learn, and approach every project with curiosity and humility.",
-      highlights: [{ word: "BlueSphere Bio", className: "text-purple-400 font-semibold" }]
+      highlights: [{ word: "BlueSphere Bio", className: `${themeText.secondary} font-semibold` }]
     }
   ],
   personalInfo: {

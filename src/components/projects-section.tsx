@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Github, ExternalLink, Code, Filter, Sparkles, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
 import { projects, projectCategories } from "@/data/projects";
+import { themeGradients, themeText, themeEffects } from "@/data/app-themes";
 
 export function ProjectsSection() {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -65,9 +66,9 @@ export function ProjectsSection() {
     <section id="projects" className="relative py-24 bg-gradient-to-br from-background via-muted/10 to-background overflow-hidden">
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-40 left-40 w-64 h-64 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-40 right-40 w-64 h-64 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/4 w-40 h-40 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-full blur-3xl animate-pulse delay-2000" />
+        <div className={`absolute top-40 left-40 w-64 h-64 ${themeEffects.blur[0]} rounded-full blur-3xl animate-pulse`} />
+        <div className={`absolute bottom-40 right-40 w-64 h-64 ${themeEffects.blur[1]} rounded-full blur-3xl animate-pulse delay-1000`} />
+        <div className={`absolute top-1/2 left-1/4 w-40 h-40 ${themeEffects.blur[2]} rounded-full blur-3xl animate-pulse delay-2000`} />
       </div>
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
@@ -79,11 +80,11 @@ export function ProjectsSection() {
           viewport={{ once: true }}
         >
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Code className="w-6 h-6 text-blue-400" />
-            <h2 className="text-4xl sm:text-5xl font-bold bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent pb-1">
+            <Code className={`w-6 h-6 ${themeText.primary}`} />
+            <h2 className={`text-4xl sm:text-5xl font-bold ${themeGradients.rainbow} bg-clip-text text-transparent pb-1`}>
               Featured Projects
             </h2>
-            <Sparkles className="w-6 h-6 text-purple-400" />
+            <Sparkles className={`w-6 h-6 ${themeText.accent}`} />
           </div>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             A showcase of my side projects spanning web development, hardware, IoT, 
@@ -105,7 +106,7 @@ export function ProjectsSection() {
               onClick={() => setActiveFilter(category)}
               className={`px-5 py-3 rounded-xl text-sm font-medium transition-all duration-300 ${
                 activeFilter === category
-                  ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-lg'
+                  ? `${themeGradients.primary} text-white shadow-lg`
                   : 'bg-background/50 backdrop-blur-md border border-border/50 hover:bg-accent hover:border-primary/30'
               }`}
               whileHover={{ scale: 1.05, y: -2 }}
@@ -127,7 +128,7 @@ export function ProjectsSection() {
             viewport={{ once: true }}
           >
             <div className="relative bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl overflow-hidden group hover:shadow-2xl transition-all duration-500 hover:border-primary/30">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-purple-500/5 to-pink-500/5" />
+              <div className={`absolute inset-0 ${themeEffects.ambient[0]}`} />
               
               {/* Navigation buttons */}
               {featuredProjects.length > 1 && (
@@ -159,11 +160,11 @@ export function ProjectsSection() {
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div>
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="bg-gradient-to-r from-cyan-500 to-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg">
+                        <div className={`${themeGradients.primary} w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg`}>
                           <currentFeaturedProject.icon className="w-8 h-8 text-white" />
                         </div>
                         <div>
-                          <span className="px-4 py-2 bg-gradient-to-r from-yellow-400/80 via-orange-400/70 to-yellow-500/80 text-white border-2 border-yellow-400 shadow-md text-sm font-semibold rounded-full backdrop-blur-sm flex items-center gap-2 animate-pulse-slow">
+                          <span className={`px-4 py-2 ${themeGradients.warm} text-white border-2 border-yellow-400 shadow-md text-sm font-semibold rounded-full backdrop-blur-sm flex items-center gap-2 animate-pulse-slow`}>
                             <Star className="w-4 h-4 text-white drop-shadow" />
                             Featured Project
                           </span>
@@ -173,7 +174,7 @@ export function ProjectsSection() {
                         </div>
                       </div>
                       
-                      <h3 className="text-3xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                      <h3 className={`text-3xl font-bold mb-4 ${themeGradients.primary} bg-clip-text text-transparent`}>
                         {currentFeaturedProject.title}
                       </h3>
                       
@@ -216,7 +217,7 @@ export function ProjectsSection() {
                             href={currentFeaturedProject.demoUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-cyan-500 to-purple-500 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300"
+                            className={`flex items-center gap-2 px-6 py-3 ${themeGradients.primary} text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300`}
                             whileHover={{ scale: 1.05, y: -2 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -229,13 +230,13 @@ export function ProjectsSection() {
 
                     <div className="relative">
                       <div className="bg-gradient-to-br from-background/80 to-muted/20 border border-border/50 rounded-2xl p-6 shadow-lg backdrop-blur-sm">
-                        <h4 className="text-lg font-semibold mb-4 bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                        <h4 className={`text-lg font-semibold mb-4 ${themeGradients.primary} bg-clip-text text-transparent`}>
                           Key Features
                         </h4>
                         <ul className="space-y-3">
                           {currentFeaturedProject.features.map((feature: string, i: number) => (
                             <li key={i} className="flex items-start gap-3">
-                              <div className="w-2 h-2 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full mt-2 flex-shrink-0" />
+                              <div className={`w-2 h-2 ${themeGradients.primary} rounded-full mt-2 flex-shrink-0`} />
                               <span className="text-muted-foreground">{feature}</span>
                             </li>
                           ))}
@@ -255,7 +256,7 @@ export function ProjectsSection() {
                       onClick={() => setCurrentFeaturedIndex(index)}
                       className={`w-3 h-3 rounded-full transition-all duration-300 ${
                         index === currentFeaturedIndex
-                          ? 'bg-gradient-to-r from-cyan-500 to-purple-500 scale-125'
+                          ? `${themeGradients.primary} scale-125`
                           : 'bg-gray-400 hover:bg-gray-300 opacity-60 hover:opacity-80'
                       }`}
                     />
@@ -294,7 +295,7 @@ export function ProjectsSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  <h3 className={`text-xl font-bold mb-3 ${themeGradients.secondary} bg-clip-text text-transparent`}>
                     {project.title}
                   </h3>
                   
@@ -337,7 +338,7 @@ export function ProjectsSection() {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-cyan-500/80 to-purple-500/80 text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-sm"
+                      className={`flex items-center gap-2 px-4 py-2 ${themeGradients.primary} text-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-sm`}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       >
@@ -365,7 +366,7 @@ export function ProjectsSection() {
           </p>
           <motion.button
             onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
-            className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3"
+            className={`${themeGradients.primary} text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center gap-3`}
             whileHover={{ scale: 1.05, y: -2 }}
             whileTap={{ scale: 0.95 }}
           >

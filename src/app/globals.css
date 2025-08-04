@@ -14,6 +14,15 @@
   --border: 240 5.9% 90%;
   --input: 240 5.9% 90%;
   --ring: 240 5.9% 10%;
+  
+  /* 404 Page Theme Colors */
+  --error-primary: 196 100% 50%;     /* cyan-500 */
+  --error-secondary: 262 83% 58%;    /* purple-500 */
+  --error-accent: 330 81% 60%;       /* pink-500 */
+  --error-warning: 39 100% 57%;      /* orange-400 */
+  --error-glow-1: 196 100% 50%;      /* cyan-500 with opacity */
+  --error-glow-2: 262 83% 58%;       /* purple-500 with opacity */
+  --error-glow-3: 330 81% 60%;       /* pink-500 with opacity */
 }
 
 .dark {
@@ -30,6 +39,15 @@
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
   --ring: 240 4.9% 83.9%;
+  
+  /* 404 Page Theme Colors - Dark Mode */
+  --error-primary: 196 100% 60%;     /* brighter cyan for dark mode */
+  --error-secondary: 262 83% 68%;    /* brighter purple for dark mode */
+  --error-accent: 330 81% 70%;       /* brighter pink for dark mode */
+  --error-warning: 39 100% 67%;      /* brighter orange for dark mode */
+  --error-glow-1: 196 100% 60%;      /* cyan with opacity */
+  --error-glow-2: 262 83% 68%;       /* purple with opacity */
+  --error-glow-3: 330 81% 70%;       /* pink with opacity */
 }
 
 * {

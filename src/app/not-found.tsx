@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Home, ArrowLeft, Clock, AlertTriangle } from "lucide-react";
 import { Logo } from "@/components/logo";
+import { themeGradients, themeText, themeEffects } from "@/data/app-themes";
 
 export default function NotFound() {
   const [countdown, setCountdown] = useState(10);
@@ -67,12 +68,12 @@ export default function NotFound() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-muted/10 to-background flex items-center justify-center relative overflow-hidden">
+    <div className={`min-h-screen bg-gradient-to-br ${themeEffects.ambient[0]} flex items-center justify-center relative overflow-hidden`}>
       {/* Background Effects */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-20 left-20 w-40 h-40 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-20 w-32 h-32 bg-gradient-to-r from-purple-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
-        <div className="absolute top-1/2 left-1/4 w-28 h-28 bg-gradient-to-r from-pink-500/5 to-orange-500/5 rounded-full blur-3xl animate-pulse delay-2000" />
+        <div className={`absolute top-20 left-20 w-40 h-40 ${themeEffects.glow[0]} rounded-full blur-3xl animate-pulse`} />
+        <div className={`absolute bottom-20 right-20 w-32 h-32 ${themeEffects.glow[1]} rounded-full blur-3xl animate-pulse delay-1000`} />
+        <div className={`absolute top-1/2 left-1/4 w-28 h-28 ${themeEffects.glow[2]} rounded-full blur-3xl animate-pulse delay-2000`} />
       </div>
 
       <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -89,17 +90,17 @@ export default function NotFound() {
 
           {/* 404 Number */}
           <motion.div variants={itemVariants} className="relative">
-            <h1 className="text-8xl sm:text-9xl font-bold bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
+            <h1 className={`text-8xl sm:text-9xl font-bold ${themeGradients.rainbow} bg-clip-text text-transparent`}>
               404
             </h1>
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-r from-orange-400 to-pink-400 rounded-full animate-pulse opacity-60" />
+            <div className={`absolute -top-4 -right-4 w-8 h-8 ${themeGradients.accent} rounded-full animate-pulse opacity-60`} />
           </motion.div>
 
           {/* Error Message */}
           <motion.div variants={itemVariants} className="space-y-4">
             <div className="flex items-center justify-center gap-3 mb-4">
-              <AlertTriangle className="w-6 h-6 text-orange-400" />
-              <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+              <AlertTriangle className={`w-6 h-6 ${themeText.warning}`} />
+              <h2 className={`text-2xl sm:text-3xl font-bold ${themeGradients.secondary} bg-clip-text text-transparent`}>
                 Page Not Found
               </h2>
             </div>
@@ -114,10 +115,10 @@ export default function NotFound() {
             className="bg-background/50 backdrop-blur-md border border-border/50 rounded-2xl p-6 shadow-lg"
           >
             <div className="flex items-center justify-center gap-3 mb-4">
-              <Clock className="w-5 h-5 text-cyan-400" />
+              <Clock className={`w-5 h-5 ${themeText.primary}`} />
               <p className="text-muted-foreground">
                 Redirecting to home page in{" "}
-                <span className="font-bold text-cyan-400 text-xl">
+                <span className={`font-bold ${themeText.primary} text-xl`}>
                   {isClient ? countdown : 10}
                 </span>{" "}
                 second{(isClient ? countdown : 10) !== 1 ? 's' : ''}
@@ -127,7 +128,7 @@ export default function NotFound() {
             {/* Countdown Progress Bar */}
             <div className="w-full bg-muted/30 rounded-full h-2 mb-4">
               <motion.div
-                className="bg-gradient-to-r from-cyan-400 to-purple-400 h-2 rounded-full"
+                className={`${themeGradients.primary} h-2 rounded-full`}
                 initial={{ width: "100%" }}
                 animate={isClient ? { width: "0%" } : { width: "100%" }}
                 transition={{ duration: 10, ease: "linear" }}
@@ -143,7 +144,7 @@ export default function NotFound() {
           <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 justify-center">
             <motion.button
               onClick={handleGoHome}
-              className="bg-gradient-to-r from-cyan-500 to-purple-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center gap-3"
+              className={`${themeGradients.primary} text-white px-8 py-4 rounded-xl font-semibold shadow-lg hover:shadow-xl transition-all duration-300 inline-flex items-center justify-center gap-3`}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
             >
