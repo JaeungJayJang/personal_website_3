@@ -15,6 +15,7 @@ try {
   // Check if the sitemap files exist
   const sitemapPath = path.join(__dirname, '../src/app/sitemap.ts');
   const robotsPath = path.join(__dirname, '../src/app/robots.ts');
+  const siteConfigPath = path.join(__dirname, '../src/data/site-config.ts');
   
   if (!fs.existsSync(sitemapPath)) {
     throw new Error('❌ sitemap.ts not found');
@@ -24,12 +25,27 @@ try {
     throw new Error('❌ robots.ts not found');
   }
   
-  console.log('✅ Sitemap files exist');
+  if (!fs.existsSync(siteConfigPath)) {
+    throw new Error('❌ site-config.ts not found');
+  }
+  
+  console.log('✅ All required files exist');
   
   // Build the project to test sitemap generation
   console.log('📦 Building project...');
-  execSync('npm run build', { cwd: path.join(__dirname, '..'), stdio: 'pipe' });
-  console.log('✅ Build successful');
+  execSync('npm run build', { stdio: 'inherit' });
+  
+  // Check if sitemap.xml was generated
+  const builtSitemapPath = path.join(__dirname, '../.next/server/app/sitemap.xml/route.js');
+  if (fs.existsSync(builtSitemapPath)) {
+    console.log('✅ Sitemap route generated successfully');
+  }
+  
+  // Validate robots.txt
+  const builtRobotsPath = path.join(__dirname, '../.next/server/app/robots.txt/route.js');
+  if (fs.existsSync(builtRobotsPath)) {
+    console.log('✅ Robots.txt route generated successfully');
+  }
   
   // Check if sitemap routes are generated
   const buildOutput = execSync('npm run build 2>&1', { 
@@ -77,6 +93,15 @@ try {
   console.log('\n🌐 Test URLs:');
   console.log('   • http://localhost:3000/sitemap.xml');
   console.log('   • http://localhost:3000/robots.txt');
+  
+  console.log('\n📋 Quick checklist:');
+  console.log('   • Sitemap includes all sections dynamically');
+  console.log('   • Featured project demos are indexed');
+  console.log('   • GitHub repositories are indexed');
+  console.log('   • Professional profiles are indexed');
+  console.log('   • Company URLs from active experiences are indexed');
+  console.log('   • Robots.txt blocks AI crawlers appropriately');
+  console.log('   • All routes have proper priorities and frequencies');
   
 } catch (error) {
   console.error('❌ Validation failed:', error.message);

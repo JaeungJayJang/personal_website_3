@@ -1,30 +1,65 @@
 import { MetadataRoute } from 'next';
 import { projects } from '@/data/projects';
+import { experiences } from '@/data/experiences';
+import { contactInfo } from '@/data/contact';
 import { sitemapGenerator } from '@/lib/sitemap-generator';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  // Main page
+  // Main page - highest priority, updated weekly
   const mainRoute = sitemapGenerator.createMainRoute();
 
   // Section routes (anchor links on the main page)
   const sectionRoutes = [
-    sitemapGenerator.createSectionRoute('about', 0.8),
-    sitemapGenerator.createSectionRoute('experience', 0.8),
-    sitemapGenerator.createSectionRoute('projects', 0.9),
-    sitemapGenerator.createSectionRoute('contact', 0.7),
+    sitemapGenerator.createSectionRoute('about', 0.9, 'monthly'),
+    sitemapGenerator.createSectionRoute('experience', 0.8, 'monthly'), 
+    sitemapGenerator.createSectionRoute('projects', 0.95, 'weekly'), // Projects updated most frequently
+    sitemapGenerator.createSectionRoute('contact', 0.7, 'yearly'),
   ];
 
-  // Generate project-specific routes for featured projects with demos
-  const projectRoutes = projects
-    .filter(project => project.featured && project.hasDemo && project.demoUrl)
-    .map(project => sitemapGenerator.createExternalRoute(project.demoUrl!, 0.7));
+  // Use the dynamic route generator for cleaner code
+  const featuredProjectRoutes = sitemapGenerator.createDynamicRoutes(
+    projects.filter(project => project.featured && project.hasDemo),
+    project => project.demoUrl || null,
+    0.8 // Higher priority for featured projects
+  );
 
-  // GitHub profile and LinkedIn (external but important for SEO)
-  const externalRoutes: MetadataRoute.Sitemap = [
-    // We could add these but they're external, so commenting out for now
-    // sitemapGenerator.createExternalRoute('https://github.com/JaeungJayJang', 0.6),
-    // sitemapGenerator.createExternalRoute('https://linkedin.com/in/jaeung-jang', 0.6),
+  const githubProjectRoutes = sitemapGenerator.createDynamicRoutes(
+    projects.filter(project => project.hasGithub),
+    project => project.githubUrl || null,
+    0.6 // Code repositories change frequently
+  );
+
+  // Professional profile routes (your own profiles only)
+  const professionalRoutes = sitemapGenerator.createDynamicRoutes(
+    contactInfo.filter(contact => 
+      contact.href?.startsWith('http') && 
+      (contact.href.includes('linkedin.com') || contact.href.includes('github.com'))
+    ),
+    contact => contact.href || null,
+    0.7
+  );
+
+  // Skip company routes - these are external sites not directly related to your content
+  // const companyRoutes = sitemapGenerator.createDynamicRoutes(
+  //   experiences.filter(exp => exp.isActive),
+  //   exp => exp.companyUrl || null,
+  //   0.6
+  // );
+
+  const allRoutes = [
+    mainRoute, 
+    ...sectionRoutes, 
+    ...featuredProjectRoutes,
+    ...githubProjectRoutes,
+    ...professionalRoutes,
+    // ...companyRoutes  // Removed to follow SEO best practices
   ];
 
-  return [mainRoute, ...sectionRoutes, ...projectRoutes, ...externalRoutes];
+  // Optional: Log SEO info in development
+  if (process.env.NODE_ENV === 'development') {
+    const seoInfo = sitemapGenerator.generateSeoInfo(allRoutes);
+    console.log('📊 Sitemap Generated:', seoInfo);
+  }
+
+  return allRoutes;
 }

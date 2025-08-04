@@ -4,10 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "build": "node scripts/pre-build-seo.js && next build && node scripts/post-build-seo.js",
+    "build-no-check": "next build",
     "start": "next start",
     "lint": "next lint",
-    "validate-sitemap": "node scripts/validate-sitemap.js"
+    "validate-sitemap": "node scripts/validate-sitemap.js",
+    "check-seo": "node scripts/pre-build-seo.js",
+    "verify-seo": "node scripts/post-build-seo.js"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.16",

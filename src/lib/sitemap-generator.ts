@@ -36,18 +36,60 @@ export class SitemapGenerator {
     });
   }
 
-  createSectionRoute(section: string, priority = 0.8): MetadataRoute.Sitemap[0] {
+  createSectionRoute(
+    section: string, 
+    priority = 0.8, 
+    changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' = 'monthly'
+  ): MetadataRoute.Sitemap[0] {
     return this.createRoute(`#${section}`, {
-      changeFrequency: 'monthly',
+      changeFrequency,
       priority,
     });
   }
 
-  createExternalRoute(url: string, priority = 0.7): MetadataRoute.Sitemap[0] {
+  createExternalRoute(
+    url: string, 
+    priority = 0.7,
+    changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never' = 'monthly'
+  ): MetadataRoute.Sitemap[0] {
     return this.createRoute(url, {
-      changeFrequency: 'monthly',
+      changeFrequency,
       priority,
     });
+  }
+
+  // Generate automatic last modified date based on build time
+  getLastModifiedDate(): Date {
+    return new Date(); // This will be the build time
+  }
+
+  // Get total route count for reporting
+  getRouteCount(sitemap: MetadataRoute.Sitemap): number {
+    return sitemap.length;
+  }
+
+  // Automatically generate routes from data changes
+  createDynamicRoutes<T>(data: T[], urlExtractor: (item: T) => string | null, priority = 0.7): MetadataRoute.Sitemap {
+    return data
+      .map(urlExtractor)
+      .filter((url): url is string => url !== null)
+      .map(url => this.createExternalRoute(url, priority));
+  }
+
+  // Generate meta information for SEO
+  generateSeoInfo(sitemap: MetadataRoute.Sitemap): {
+    totalRoutes: number;
+    lastUpdated: string;
+    highPriorityRoutes: number;
+    externalRoutes: number;
+  } {
+    const now = new Date().toISOString();
+    return {
+      totalRoutes: sitemap.length,
+      lastUpdated: now,
+      highPriorityRoutes: sitemap.filter(route => route.priority && route.priority >= 0.8).length,
+      externalRoutes: sitemap.filter(route => route.url.startsWith('http') && !route.url.includes(this.baseUrl)).length,
+    };
   }
 }
 
