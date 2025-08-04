@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Palette, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/hooks/use-theme";
+import { type ThemeNames } from "@/data/app-themes";
 
 interface ThemeSwitcherProps {
   className?: string;
@@ -15,7 +16,7 @@ export function ThemeSwitcher({ className = "", showLabel = true }: ThemeSwitche
   const [isOpen, setIsOpen] = useState(false);
 
   const handleThemeChange = (newTheme: string) => {
-    switchTheme(newTheme as any);
+    switchTheme(newTheme as ThemeNames);
     setIsOpen(false);
   };
 
@@ -135,7 +136,7 @@ export function QuickThemeSwitcher() {
     <div className="fixed bottom-4 right-4 z-50">
       <select 
         value={themeName} 
-        onChange={(e) => switchTheme(e.target.value as any)}
+        onChange={(e) => switchTheme(e.target.value as ThemeNames)}
         className="
           px-3 py-1 text-sm rounded border border-border
           bg-background/90 backdrop-blur-sm

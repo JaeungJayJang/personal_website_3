@@ -5,6 +5,7 @@
  * All colors, gradients, and design tokens are now managed from a single source.
  */
 
+// Note: themes and ThemeNames are imported for documentation reference in examples below
 import { themes, type ThemeNames } from './app-themes';
 
 export const themeSystemDocs = {
@@ -24,7 +25,8 @@ export const themeSystemDocs = {
       "sunset - Orange/Red/Pink warm tones",
       "forest - Green/Emerald/Teal nature vibes",
       "monochrome - Uses your existing light/dark theme colors"
-    ]
+    ],
+    exampleThemes: Object.keys(themes) as ThemeNames[]
   },
 
   // === WHAT'S BEEN UPDATED ===
