@@ -42,11 +42,11 @@ export const skills: Skill[] = [
 
 export const aboutContent = {
   title: "About Me",
-  subtitle: "I'm a software engineer specializing in bioinformatics workflows, cloud architecture, and full-stack development. I build scalable solutions that accelerate scientific research and optimize computational resources.",
+  subtitle: "I'm a software engineer passionate about building robust, scalable, and user-friendly software solutions. I specialize in cloud architecture, full-stack development, and workflow automation to empower teams and accelerate innovation.",
   journeyTitle: "My Journey",
   journeyParagraphs: [
     {
-      text: "At BioNTech, a large company with great resources and a startup mindset, I focused on building scalable cloud-based pipelines and managing internal databases to help scientists accelerate their research. I enjoyed collaborating with cross-site teams and making complex processes more efficient and accessible.",
+      text: "At BioNTech, I contributed to developing scalable cloud-based systems and managing internal platforms to streamline research and business operations. I enjoyed collaborating with cross-functional teams and making complex processes more efficient and accessible.",
       highlights: [{ word: "BioNTech", className: `${themeText.primary} font-semibold` }]
     },
     {
@@ -61,7 +61,7 @@ export const aboutContent = {
   personalInfo: {
     currentFocus: {
       title: "Current Focus",
-      description: "Bioinformatics workflows, cloud-based pipelines, and scalable data management platforms"
+      description: "Cloud-native applications, scalable web platforms, and workflow automation"
     },
     location: {
       title: "Location",
@@ -69,7 +69,7 @@ export const aboutContent = {
     },
     interests: {
       title: "Interests",
-      description: "Bioinformatics, Cloud Computing, Workflow Automation, Research Technology"
+      description: "Software Architecture, Cloud Computing, Full-Stack Development, Automation"
     }
   }
 };
