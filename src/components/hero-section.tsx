@@ -191,7 +191,7 @@ const floatingElements = [
             style={{ left: element.x, top: element.y }}
             initial={{ opacity: 0, y: 20 }}
             animate={{ 
-              opacity: [0, 0.9, 0],
+              opacity: [0, 0.5, 0],
               y: [-20, -40, -60],
             }}
             transition={{
