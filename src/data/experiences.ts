@@ -37,11 +37,10 @@ export const experiences: Experience[] = [
     period: "Nov 2020 - Jun 2023",
     location: "Pittsburgh, PA",
     description: [
-      "Developed Nextflow-driven workflow management platform using Next.js and FastAPI, delivering real-time progress monitoring, user-specific permissions, and intermediate result access for enhanced operational transparency",
-      "Developed a React + FastAPI-based TCR analysis platform with user-friendly web interface, enabling bench scientists to independently analyze data and automate processes",
-      "Transformed hybrid server architecture by integrating Slurm HPC clusters and centralized user authentication via LDAP, resulting in optimized computational resource allocation",
-      "Achieved a 40% reduction in expected AWS costs by optimizing S3 and Storage Gateway usage, maintaining high system availability without compromising performance",
-      "Co-authored two patent filings, contributing to proprietary datasets and designing a scalable data management platform that boosted research throughput"
+      "Introduced real-time monitoring tools that gave teams greater visibility into their research progress",
+      "Strengthened infrastructure by transforming servers into a cluster environment, improving performance and reliability",
+      "Created internal platforms that allowed scientists to explore and analyze data independently, reducing turnaround times",
+      "Helped the company scale sustainably by cutting cloud costs while maintaining high system availability"
     ],
     technologies: ["Next.js", "FastAPI", "React", "Python", "Nextflow", "Slurm", "LDAP", "AWS", "HPC", "MongoDB"],
     isActive: false,
