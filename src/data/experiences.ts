@@ -16,13 +16,14 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     company: "BioNTech US, BioNTech SE",
-    position: "Software Engineer",
+    position: "Software Engineer II",
     period: "Jun 2023 - Present",
     location: "Gaithersburg, MD",
     description: [
-      "Engineer scalable cloud-based bioinformatics workflows using Nextflow, cutting analysis runtime from overnight to hours and automating processes to accelerate research timelines",
-      "Collaborate with cross-site teams to design and implement components of a centralized internal database, supporting organizational goals and data accessibility",
-      "Support CI/CD pipeline best practices, version control, and documentation standards to ensure reproducible workflows and seamless team collaboration"
+      "Improved scientific workflows to boost accuracy, speed, and reliability of research across global teams",
+      "Built a genetic classification pipeline that cut analysis time from several days to just hours, helping more than 50 researchers accelerate discovery",
+      "Developed a shared data platform that made complex datasets easier to access, strengthening collaboration across multiple sites",
+      "Created tools that reduced manual work for scientists and enhanced the overall research process"
     ],
     technologies: ["Nextflow", "Python", "AWS", "Docker", "Git", "CI/CD"],
     isActive: true,
