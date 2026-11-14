@@ -26,7 +26,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: siteConfig.title,
   description: siteConfig.description,
-  keywords: ["Jaeung Jang", "Software Engineer", "Full Stack Developer", "Machine Learning", "BioNTech", "BlueSphere Bio"],
+  keywords: ["Jaeung Jang", "Software Engineer", "Full Stack Developer", "Machine Learning", "Capital One", "BioNTech", "BlueSphere Bio"],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
   metadataBase: new URL(siteConfig.website),

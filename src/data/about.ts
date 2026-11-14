@@ -25,7 +25,7 @@ export const skills: Skill[] = [
 
 export const aboutContent = {
   title: "About Me",
-  subtitle: "I'm a software engineer passionate about building robust, scalable, and user-friendly software solutions. I specialize in cloud architecture, full-stack development, and workflow automation to empower teams and accelerate innovation.",
+  subtitle: "I'm a full stack software engineer. Before Capital One, I spent five years building data pipelines and research platforms alongside scientists at BioNTech and BlueSphere Bio, which taught me to care about software people can depend on: systems that stay up, scale with the work, and are easy to use.",
   journeyTitle: "My Journey",
   journeyParagraphs: [
     {

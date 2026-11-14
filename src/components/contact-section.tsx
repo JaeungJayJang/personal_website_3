@@ -27,7 +27,7 @@ export function ContactSection() {
       const data = await res.json();
       if (res.ok) {
         setStatus("success");
-        setMessage("Thanks — your message is on its way.");
+        setMessage("Thanks! Your message is on its way.");
         setForm(empty);
       } else {
         setStatus("error");

@@ -12,9 +12,18 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    company: "Capital One",
+    position: "Full Stack Software Engineer",
+    period: "Jan 2026 - Present",
+    location: "Virginia",
+    description: [],
+    technologies: [],
+    isActive: true,
+  },
+  {
     company: "BioNTech US, BioNTech SE",
     position: "Software Engineer II",
-    period: "Jun 2023 - Present",
+    period: "Jun 2023 - Sep 2025",
     location: "Gaithersburg, MD",
     description: [
       "Improved scientific workflows to boost accuracy, speed, and reliability of research across global teams",
@@ -23,7 +32,7 @@ export const experiences: Experience[] = [
       "Created tools that reduced manual work for scientists and enhanced the overall research process"
     ],
     technologies: ["Nextflow", "Python", "AWS", "Docker", "Git", "CI/CD"],
-    isActive: true,
+    isActive: false,
     companyUrl: "https://biontech.de"
   },
   {

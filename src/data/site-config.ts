@@ -25,7 +25,7 @@ export const quickLinks: QuickLink[] = [
 export const siteConfig = {
   name: "Jaeung Jang",
   title: "Jaeung Jang | Software Engineer",
-  description: "Software Engineer passionate about building innovative solutions at the intersection of technology and healthcare.",
+  description: "Full stack software engineer building reliable, scalable software, from frontend experiences to backend systems.",
   tagline: "Building the future, one commit at a time",
   location: "Virginia, United States",
   email: "wodndckato@gmail.com",

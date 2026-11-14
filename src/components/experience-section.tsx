@@ -16,12 +16,12 @@ export function ExperienceSection() {
                 ) : exp.company}
               </h3>
               <p className="text-sm text-muted">{exp.location}</p>
-              <ul className="mt-4 space-y-2 leading-relaxed text-muted">
+              {exp.description.length > 0 && <ul className="mt-4 space-y-2 leading-relaxed text-muted">
                 {exp.description.map((d) => (
                   <li key={d} className="pl-4 -indent-4 before:mr-2 before:text-accent before:content-['–']">{d}</li>
                 ))}
-              </ul>
-              <p className="mt-4 font-mono text-xs text-muted">{exp.technologies.join(" / ")}</p>
+              </ul>}
+              {exp.technologies.length > 0 && <p className="mt-4 font-mono text-xs text-muted">{exp.technologies.join(" / ")}</p>}
             </div>
           </li>
         ))}

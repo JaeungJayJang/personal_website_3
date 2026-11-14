@@ -7,7 +7,7 @@ export function HeroSection() {
     <section id="top" className="pb-16 pt-20 md:pb-24 md:pt-32">
       <p className="font-mono text-xs uppercase tracking-widest text-muted">{siteConfig.location}</p>
       <h1 className="mt-6 max-w-4xl font-serif text-5xl leading-[1.05] tracking-tight sm:text-7xl">
-        Jaeung Jang builds software <em className="text-accent">for scientists</em> &mdash; pipelines, platforms, and the tools in between.
+        Jaeung Jang builds <em className="text-accent">reliable, scalable</em> software, from frontend experiences to backend systems.
       </h1>
       <div className="mt-10 flex flex-wrap items-baseline gap-x-8 gap-y-3 text-sm">
         {current && (
