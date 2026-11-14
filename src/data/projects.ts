@@ -1,5 +1,3 @@
-import { Globe, Palette, Code, Cpu, Gamepad2, LucideIcon } from "lucide-react";
-import { themeGradients, themeText } from "./app-themes";
 
 export interface Project {
   title: string;
@@ -7,15 +5,11 @@ export interface Project {
   shortDesc: string;
   technologies: string[];
   features: string[];
-  icon: LucideIcon;
   category: string;
   period?: string;
   hasGithub: boolean;
   hasDemo: boolean;
   featured: boolean;
-  gradient: string;
-  accentColor: string;
-  bgColor: string;
   githubUrl?: string;
   demoUrl?: string;
 }
@@ -36,15 +30,11 @@ export const projects: Project[] = [
       "Vercel deployment with custom domain",
       "TypeScript for full type safety"
     ],
-    icon: Code,
     category: "Web Development",
     period: "Jul 2025",
     hasGithub: true,
     hasDemo: true,
     featured: true,
-    gradient: themeGradients.primary.replace('bg-gradient-to-r', 'from-gradient-start to-gradient-end'),
-    accentColor: themeText.primary,
-    bgColor: themeText.primary.replace('text-', 'bg-') + '/10',
     githubUrl: "https://github.com/JaeungJayJang/personal_website_3",
     demoUrl: "https://jang.jaeung.com"
   },
@@ -59,15 +49,11 @@ export const projects: Project[] = [
       "Cloud deployment on AWS",
       "MongoDB with Beanie ODM for data management"
     ],
-    icon: Globe,
     category: "Web Development",
     period: "Jul 2024 - Present",
     hasGithub: false, // disable until they are back online again
     hasDemo: false,  // disable until they are back online again
     featured: true,
-    gradient: "from-blue-500/60 to-purple-500/60",
-    accentColor: "text-blue-400",
-    bgColor: "bg-blue-500/10",
     demoUrl: "https://blog.jaeung.dev" // Add your actual demo URL
   },
   {
@@ -85,15 +71,11 @@ export const projects: Project[] = [
       "3D printed enclosure with wireless connectivity",
       "ESP32 upgrade for improved performance"
     ],
-    icon: Cpu,
     category: "IoT",
     period: "2024",
     hasGithub: true,
     hasDemo: false,
     featured: false,
-    gradient: "from-teal-500/60 to-cyan-500/60",
-    accentColor: "text-teal-400",
-    bgColor: "bg-teal-500/10",
     githubUrl: "https://github.com/JaeungJayJang/IO_Time_Tracker_Cube"
   },
   {
@@ -107,15 +89,11 @@ export const projects: Project[] = [
       "Automated deployment with GitHub Actions",
       "Optimized for performance and design"
     ],
-    icon: Palette,
     category: "Web Development",
     period: "Jul 2024 - Present",
     hasGithub: true,
     hasDemo: true,
     featured: false,
-    gradient: "from-emerald-500/60 to-teal-500/60",
-    accentColor: "text-emerald-400",
-    bgColor: "bg-emerald-500/10",
     githubUrl: "https://github.com/JaeungJayJang/personal_website",
     demoUrl: "https://jang2.jaeung.com"
   },
@@ -130,14 +108,10 @@ export const projects: Project[] = [
       "Hardware assembly and configuration",
       "Personalized key mapping"
     ],
-    icon: Code,
     category: "Hardware",
     hasGithub: false,
     hasDemo: false,
     featured: false,
-    gradient: "from-orange-500/60 to-red-500/60",
-    accentColor: "text-orange-400",
-    bgColor: "bg-orange-500/10"
   },
   {
     title: "ESP32 Tyranitar",
@@ -150,14 +124,10 @@ export const projects: Project[] = [
       "MicroPython programming",
       "Interactive hardware project"
     ],
-    icon: Cpu,
     category: "IoT",
     hasGithub: false,
     hasDemo: false,
     featured: false,
-    gradient: "from-purple-500/60 to-pink-500/60",
-    accentColor: "text-purple-400",
-    bgColor: "bg-purple-500/10"
   },
   {
     title: "JK Guest House",
@@ -170,15 +140,11 @@ export const projects: Project[] = [
       "Contact and booking information",
       "Optimized for business needs"
     ],
-    icon: Globe,
     category: "Web Development",
     period: "2024",
     hasGithub: false,
     hasDemo: true,
     featured: false,
-    gradient: "from-green-500/60 to-emerald-500/60",
-    accentColor: "text-green-400",
-    bgColor: "bg-green-500/10",
     demoUrl: "https://www.jkguesthouse.com"
   },
   {
@@ -192,14 +158,10 @@ export const projects: Project[] = [
       "Sprite animations and graphics",
       "Score tracking and gameplay mechanics"
     ],
-    icon: Gamepad2,
     category: "Mobile Game",
     hasGithub: false,
     hasDemo: false,
     featured: false,
-    gradient: "from-cyan-500/60 to-blue-500/60",
-    accentColor: "text-cyan-400",
-    bgColor: "bg-cyan-500/10"
   }
 ];
 

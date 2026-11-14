@@ -1,126 +1,53 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: 0 0% 100%;
-  --foreground: 240 10% 3.9%;
-  --primary: 240 5.9% 10%;
-  --primary-foreground: 0 0% 98%;
-  --secondary: 240 4.8% 95.9%;
-  --secondary-foreground: 240 5.9% 10%;
-  --muted: 240 4.8% 95.9%;
-  --muted-foreground: 240 3.8% 46.1%;
-  --accent: 240 4.8% 95.9%;
-  --accent-foreground: 240 5.9% 10%;
-  --border: 240 5.9% 90%;
-  --input: 240 5.9% 90%;
-  --ring: 240 5.9% 10%;
-  
-  /* 404 Page Theme Colors */
-  --error-primary: 196 100% 50%;     /* cyan-500 */
-  --error-secondary: 262 83% 58%;    /* purple-500 */
-  --error-accent: 330 81% 60%;       /* pink-500 */
-  --error-warning: 39 100% 57%;      /* orange-400 */
-  --error-glow-1: 196 100% 50%;      /* cyan-500 with opacity */
-  --error-glow-2: 262 83% 58%;       /* purple-500 with opacity */
-  --error-glow-3: 330 81% 60%;       /* pink-500 with opacity */
+  --bg: #f4f2ee;
+  --fg: #1b1a18;
+  --muted: #6d6a63;
+  --line: #dcd8cf;
+  --accent: #c2410c;
 }
 
 .dark {
-  --background: 240 10% 3.9%;
-  --foreground: 0 0% 98%;
-  --primary: 0 0% 98%;
-  --primary-foreground: 240 5.9% 10%;
-  --secondary: 240 3.7% 15.9%;
-  --secondary-foreground: 0 0% 98%;
-  --muted: 240 3.7% 15.9%;
-  --muted-foreground: 240 5% 64.9%;
-  --accent: 240 3.7% 15.9%;
-  --accent-foreground: 0 0% 98%;
-  --border: 240 3.7% 15.9%;
-  --input: 240 3.7% 15.9%;
-  --ring: 240 4.9% 83.9%;
-  
-  /* 404 Page Theme Colors - Dark Mode */
-  --error-primary: 196 100% 60%;     /* brighter cyan for dark mode */
-  --error-secondary: 262 83% 68%;    /* brighter purple for dark mode */
-  --error-accent: 330 81% 70%;       /* brighter pink for dark mode */
-  --error-warning: 39 100% 67%;      /* brighter orange for dark mode */
-  --error-glow-1: 196 100% 60%;      /* cyan with opacity */
-  --error-glow-2: 262 83% 68%;       /* purple with opacity */
-  --error-glow-3: 330 81% 70%;       /* pink with opacity */
+  --bg: #121211;
+  --fg: #ebe9e4;
+  --muted: #8f8b84;
+  --line: #2a2926;
+  --accent: #f0875a;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
 }
 
 * {
-  border-color: hsl(var(--border));
-}
-
-body {
-  background-color: hsl(var(--background));
-  color: hsl(var(--foreground));
-  font-feature-settings: "rlig" 1, "calt" 1;
+  border-color: var(--line);
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+body {
+  background: var(--bg);
+  color: var(--fg);
 }
 
-::-webkit-scrollbar-track {
-  background: hsl(var(--muted));
+::selection {
+  background: var(--accent);
+  color: var(--bg);
 }
 
-::-webkit-scrollbar-thumb {
-  background: hsl(var(--muted-foreground));
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: hsl(var(--primary));
-}
-
-/* Hero section animations */
-@keyframes matrix-scroll {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(50px); }
-}
-
-.bg-grid-pattern {
-  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
-  background-size: 40px 40px;
-}
-
-/* Unified Design System Animations */
-@keyframes glow {
-  0%, 100% { text-shadow: 0 0 5px currentColor; }
-  50% { text-shadow: 0 0 20px currentColor, 0 0 30px currentColor; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
-@keyframes blink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.3); }
-  50% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.6), 0 0 40px rgba(139, 92, 246, 0.4); }
-}
-
-@keyframes gradient-shift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes fade-in-up {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
