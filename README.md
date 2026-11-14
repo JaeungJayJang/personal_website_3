@@ -88,7 +88,7 @@ The development server uses **Turbopack** for instant hot reloading and optimize
 ```
 ├── public/                 # Static assets
 │   ├── Main_page.png      # Portfolio screenshot
-│   ├── favicon.svg        # Site favicon
+│   ├── icon-512.png       # PWA / manifest icon
 │   ├── logo.svg           # Brand logo
 │   ├── manifest.json      # PWA manifest
 │   └── ...                # Other icons and assets
