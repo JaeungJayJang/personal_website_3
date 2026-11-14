@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+// Visitor input goes into an HTML email; escape it so it can't inject markup or links.
+const escapeHtml = (value: unknown) =>
+  String(value).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+
 export async function POST(request: NextRequest) {
   try {
     const { name, email, subject, message } = await request.json();
@@ -41,12 +45,12 @@ export async function POST(request: NextRequest) {
       subject: `Portfolio Contact: ${subject}`,
       html: `
         <h2>New Contact Form Submission</h2>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
+        <p><strong>Name:</strong> ${escapeHtml(name)}</p>
+        <p><strong>Email:</strong> ${escapeHtml(email)}</p>
+        <p><strong>Subject:</strong> ${escapeHtml(subject)}</p>
         <p><strong>Message:</strong></p>
         <div style="background-color: #f5f5f5; padding: 15px; border-radius: 5px; margin-top: 10px;">
-          ${message.replace(/\n/g, '<br>')}
+          ${escapeHtml(message).replace(/\n/g, '<br>')}
         </div>
         <hr>
         <p><em>This email was sent from your portfolio contact form.</em></p>
